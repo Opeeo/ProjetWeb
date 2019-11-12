@@ -1,3 +1,30 @@
+<?php
+
+/*
+ *  TODO: Implémenter les variable de session
+ *
+ *  Variable de session utilisées ici :
+ *      - 'logged' - Utilisé pour savoir si l'utilisateur est connecté
+ *      - 'username' - Utilisé pour récupérer le nom et prenom de l'utilisateur
+ *
+ *
+ */
+
+
+
+    //Exemple :
+
+    $_SESSION['logged'] = false;
+
+    $_SESSION['username'] = 'Gabriel RICARD';
+
+
+
+
+?>
+
+
+
 <nav style="background-color: black; padding-top: 0px; padding-bottom: 0px" class="navbar navbar-expand-lg navbar-custom navbar-dark fixed-top">
     <a style="margin-right: 50px" class="navbar-brand" href="#">
         <img src="assets/image/cesilogo.jpg" height="40">
@@ -27,70 +54,74 @@
         </ul>
     </div>
     <div class="navbar-text">
-        <li class="register">
-            <span style="display: inline-block">
-            <a class="nav-link" href="index.php">
-                Register
-            </a>
-        </span>
-        </li>
-        <li class="login">
-            <span style="display: inline-block">
-            <a class="nav-link" href="index.php">
-                Log in
-            </a>
-        </span>
-        </li>
 
+        <?php
 
+            if(isset($_SESSION['logged'])) {
+                if($_SESSION['logged'] === true) {
+                    echo "
+                    
+            <div class=\"nav-item dropdown\">
+                <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                    " . $_SESSION['username'] . "
+                </a>
+                <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                    <a class=\"dropdown-item\" href=\"#\">Mon profil</a>
+                    <a class=\"dropdown-item\" href=\"#\">Mon panier</a>
+                    <div class=\"dropdown-divider\"></div>
+                    <a class=\"dropdown-item\" href=\"#\">Se déconnecter</a>
+                </div>
+            </div>
+                    
+                    ";
+                } else {
 
+                    echo "
+                    
+            <li class=\"register\">
+                <span style=\"display: inline-block\">
+                    <a class=\"nav-link\" href=\"index.php\">
+                        Register
+                    </a>
+                </span>
+            </li>
+            <li class=\"login\">
+                <span style=\"display: inline-block\">
+                    <a class=\"nav-link\" href=\"index.php\">
+                        Log in
+                    </a>
+                </span>
+            </li>
+                    
+                    ";
+                }
+            } else {
 
+                echo "
+                
+            <li class=\"register\">
+                <span style=\"display: inline-block\">
+                    <a class=\"nav-link\" href=\"index.php\">
+                        Register
+                    </a>
+                </span>
+            </li>
+            <li class=\"login\">
+                <span style=\"display: inline-block\">
+                    <a class=\"nav-link\" href=\"index.php\">
+                        Log in
+                    </a>
+                </span>
+            </li>
+                
+                ";
+
+            }
+
+        ?>
     </div>
 </nav>
 
 
 
 
-
-
-
-<?php
-
-/*
-<nav style="background-color: black" class="navbar navbar-expand-md navbar-dark fixed-top">
-
-    <div class="navbar-brand">
-        <a class="navbar-brand" href="index.php"><img src="https://ecole-ingenieurs.cesi.fr/wp-content/uploads/sites/5/2018/10/logo-cesi-ecole-ingenieurs.png"></a>
-    </div>
-
-    <div class="navbar-content-area">
-        <span class="navbar-content-item">
-            Home
-        </span>
-
-        <span class="navbar-content-item">
-            Event
-        </span>
-
-        <span class="navbar-content-item">
-            Shop
-        </span>
-    </div>
-
-    <div class="navbar-content-connect">
-        <span class="navbar-content-register">
-            Register
-        </span>
-
-        <span class="navbar-content-login">
-            Log in
-        </span>
-    </div>
-
-
-
-
-
-</nav>*/
-
-?>

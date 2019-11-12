@@ -58,3 +58,17 @@
 .navbar-custom .navbar-nav .nav-item .dropdown-menu .dropdown-item {
     color: white;
 }
+
+.navbar-custom .navbar-text .dropdown .nav-link:hover {
+    color: #0056b3;
+    background-color: white;
+}
+
+.navbar-custom .navbar-text .dropdown .dropdown-menu {
+     background-color: black;
+}
+
+.navbar-custom .navbar-text .dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: white;
+    color: #0056b3;
+}
