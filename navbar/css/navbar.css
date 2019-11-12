@@ -1,0 +1,60 @@
+.navbar-custom .navbar-nav .nav-item:hover .nav-link {
+     color: #0056b3;
+}
+
+.navbar-custom .navbar-nav .nav-item:hover {
+    background-color: white;
+}
+
+.navbar-custom .navbar-nav .nav-item .nav-link {
+    color: rgb(200,200,200);
+}
+
+.navbar-custom .navbar-nav .nav-item {
+    margin-right: 5px;
+}
+
+.navbar-custom .navbar-brand {
+    color: white;
+}
+
+.navbar-custom .navbar-toggler {
+    color: white;
+}
+
+.navbar-custom .navbar-text .register {
+    display: inline-block;
+}
+
+.navbar-custom .navbar-text .login {
+    display: inline-block;
+}
+
+.navbar-custom .navbar-text .register:hover {
+    background-color: white;
+}
+
+.navbar-custom .navbar-text .login:hover {
+    background-color: white;
+}
+
+.navbar-custom .navbar-text .register:hover .nav-link {
+    color: #0056b3;
+}
+
+.navbar-custom .navbar-text .login:hover .nav-link {
+    color: #0056b3;
+}
+
+
+.navbar-custom .navbar-nav .nav-item .dropdown-menu {
+    background-color: black;
+}
+
+.navbar-custom .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+    background-color: white;
+    color: #0056b3;
+}
+.navbar-custom .navbar-nav .nav-item .dropdown-menu .dropdown-item {
+    color: white;
+}
