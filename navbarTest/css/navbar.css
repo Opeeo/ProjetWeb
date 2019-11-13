@@ -69,6 +69,6 @@
 }
 
 .navbar-custom .navbar-text .dropdown .dropdown-menu .dropdown-item:hover {
-    background-color: white;
+    background-color: red;
     color: #0056b3;
 }
