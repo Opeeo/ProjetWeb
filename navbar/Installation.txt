@@ -1,3 +1,0 @@
-Installation de la navbar :
-	- Inclure 'navbar.php' dans le header
-	- Intégrer bootstrap(CSS et JS) / JQuerry / Popper
