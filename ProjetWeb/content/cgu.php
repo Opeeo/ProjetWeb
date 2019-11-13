@@ -5,6 +5,6 @@
         <title>BDE Cesi Toulouse - CGU</title>
     </head>
     <body>
-
+        <p>yo</p>
     </body>
 </html>

@@ -78,7 +78,7 @@
                     
             <li class=\"register\">
                 <span style=\"display: inline-block\">
-                    <a class=\"nav-link\" href=\"index.php\">
+                    <a class=\"nav-link\" href=\"content/register.php\">
                         Register
                     </a>
                 </span>
@@ -99,14 +99,14 @@
                 
             <li class=\"register\">
                 <span style=\"display: inline-block\">
-                    <a class=\"nav-link\" href=\"index.php\">
+                    <a class=\"nav-link\" href=\"content/register.php\">
                         Register
                     </a>
                 </span>
             </li>
             <li class=\"login\">
                 <span style=\"display: inline-block\">
-                    <a class=\"nav-link\" href=\"index.php\">
+                    <a class=\"nav-link\" href=\"content/login.php\">
                         Log in
                     </a>
                 </span>

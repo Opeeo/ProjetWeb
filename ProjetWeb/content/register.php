@@ -18,7 +18,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-9 col-lg-8 mx-auto">
-                    <h3 class="login-heading mb-4">Accéder à votre espace BDE :</h3>
+                    <h3 class="login-heading mb-4">Rejoindre votre espace BDE :</h3>
                     <form>
                       <div class="form-label-group">
                         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
@@ -26,10 +26,28 @@
                       </div>
       
                       <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                        <label for="inputPassword">Mot de passe</label>
+                        <input type="text" id="inputName" class="form-control" placeholder="Name" required>
+                        <label for="inputName">Nom</label>
                       </div>
-                      <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Connexion</button>
+
+                      <div class="form-label-group">
+                        <input type="text" id="inputFirstName" class="form-control" placeholder="First name" required>
+                        <label for="inputFirstName">Prénom</label>
+                      </div>
+
+                      <!-- Check campus Toulouse ? -->
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="CP" required>
+                        <label class="custom-control-label" for="CP">Inscription au campus de Toulouse</label>
+                      </div>
+
+                      <!-- Check CGU acceptées ? -->
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="CGU" required>
+                        <label class="custom-control-label" for="CGU"><strong><a class="text-dark" href="cgu.php">Conditions générales d'utilisation</a></strong></label>
+                      </div>
+
+                      <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Inscription</button>
                     </form>
                 </div>
               </div>

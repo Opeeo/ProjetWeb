@@ -22,27 +22,27 @@
    color: white;
 }
 
-.navbar-custom .navbar-nav .register {
+.navbar-custom .navbar-text .register {
    display: inline-block;
 }
 
-.navbar-custom .navbar-nav .login {
+.navbar-custom .navbar-text .login {
    display: inline-block;
 }
 
-.navbar-custom .navbar-nav .register:hover {
+.navbar-custom .navbar-text .register:hover {
    background-color: white;
 }
 
-.navbar-custom .navbar-nav .login:hover {
+.navbar-custom .navbar-text .login:hover {
    background-color: white;
 }
 
-.navbar-custom .navbar-nav .register:hover .nav-link {
+.navbar-custom .navbar-text .register:hover .nav-link {
    color: #0056b3;
 }
 
-.navbar-custom .navbar-nav .login:hover .nav-link {
+.navbar-custom .navbar-text .login:hover .nav-link {
    color: #0056b3;
 }
 
