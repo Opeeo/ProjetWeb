@@ -19,7 +19,7 @@
                 <div class="row">
                   <div class="col-md-9 col-lg-8 mx-auto">
                     <h3 class="login-heading mb-4">Rejoindre votre espace BDE :</h3>
-                    <form>
+                    <form action="./verifRegister">
                       <div class="form-label-group">
                         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                         <label for="inputEmail">Adresse email</label>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <?php include("head.php") ?>
+        <?php include("content/head.php") ?>
         <title>BDE Cesi Toulouse - Mentions Légales</title>
     </head>
     <body>
+        <?php include("content/navbar.php") ?>
 
+        <?php include("content/foot.php") ?>
     </body>
 </html>
