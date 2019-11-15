@@ -23,6 +23,7 @@
                         <div class="list-group">
                             <!-- Trigger modal -->
                             <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">Trier par...</button>
+                            <button type="submit" class="btn btn-success">Ajouter au panier</button>
                         
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -69,8 +70,8 @@
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                                    <button type="button" class="btn btn-primary">Valider</button>
+                                                        <button type="button" class="btn btn-dark" data-dismiss="modal">Fermer</button>
+                                                        <button type="button submit" class="btn btn-success">Valider</button>
                                                 </div>
                                         </div>
                                     </div>
