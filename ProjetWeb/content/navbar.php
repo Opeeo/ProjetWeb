@@ -10,14 +10,6 @@
  *
  */
 
-
-
-    //Exemple :
-
-    $_SESSION['logged'] = false;
-
-    $_SESSION['username'] = 'Gabriel RICARD';
-
 ?>
 
 <nav style="background-color: black; padding-top: 0px; padding-bottom: 0px" class="navbar navbar-expand-lg navbar-custom navbar-dark fixed-top">
@@ -77,14 +69,14 @@
                     
             <li class=\"register\">
                 <span style=\"display: inline-block\">
-                    <a class=\"nav-link\" href=\"content/inscription\">
+                    <a class=\"nav-link\" href=\"content/inscription.php\">
                         Inscription
                     </a>
                 </span>
             </li>
             <li class=\"login\">
                 <span style=\"display: inline-block\">
-                    <a class=\"nav-link\" href=\"content/connexion\">
+                    <a class=\"nav-link\" href=\"content/connexion.php\">
                         Connexion
                     </a>
                 </span>
