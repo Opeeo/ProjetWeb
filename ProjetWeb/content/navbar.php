@@ -21,9 +21,9 @@
 ?>
 
 <nav style="background-color: black; padding-top: 0px; padding-bottom: 0px" class="navbar navbar-expand-lg navbar-custom navbar-dark fixed-top">
-    <a style="margin-right: 60px" class="navbar-brand" href="#">
+    <a style="margin-right: 60px" class="navbar-brand" href="index.php">
         <img src="assets/vendors/pictures/CesiLogo.jpg" height="40">
-        <span style="margin-left: 10px">BDE - Toulouse</span>
+        <span style="margin-left: 10px">BDE Cesi - Toulouse</span>
     </a>
 
 
