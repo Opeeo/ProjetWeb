@@ -1,10 +1,12 @@
-<?php 
+<?php
 
-$jsonEvent = file_get_contents("http://localhost:3003/recupEvent");
+$url = "http://10.131.128.201:3003";
+
+$jsonEvent = file_get_contents($url . "/recupEvent");
 $resultEvent = json_decode($jsonEvent);
-$jsonPhoto = file_get_contents("http://localhost:3003/recupPhoto");
+$jsonPhoto = file_get_contents($url . "/recupPhoto");
 $resultPhoto = json_decode($jsonPhoto);
-$jsonComs = file_get_contents("http://localhost:3003/recupComs");
+$jsonComs = file_get_contents($url . "/recupComs");
 $resultComs = json_decode($jsonComs);
 $p = 0;
 $f = 0;
@@ -65,3 +67,21 @@ for ($i = 0 ; $i < count($eventP) ; $i++) {
     }
     
 }
+
+for ($i = 0 ; $i < count($eventF) ; $i++) {
+    $parse1 = explode("T", $eventF[$i]['date']);
+    $parse2 = explode("-", $parse1[0]);
+    $parseDate = $parse2[2] . "/" . $parse2[1] . "/" . $parse2[0];
+
+    $eventF[$i]['date'] = $parseDate;
+}
+
+for ($i = 0 ; $i < count($eventP) ; $i++) {
+    $parse1 = explode("T", $eventP[$i]['date']);
+    $parse2 = explode("-", $parse1[0]);
+    $parseDate = $parse2[2] . "/" . $parse2[1] . "/" . $parse2[0];
+
+    $eventP[$i]['date'] = $parseDate;
+}
+
+//var_dump($eventF);

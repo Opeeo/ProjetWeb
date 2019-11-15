@@ -27,43 +27,18 @@
                  *
                  */
 
-                class JsonObject {
+                include "content/eventVerif.php";
 
-                    function __construct()
-                    {
-                        $EventName = "";
-                        $EventPrice = 0;
-                        $EventImage = "";
-                        $EventDate = "";
-                        $EventId = null;
-                    }
+
+                for ($i = 0 ; $i < count($eventF) ; $i++) {
+
+                    displayFutureEvent($eventF[$i]['nom'], $eventF[$i]['prix'], $eventF[$i]['illust'], $parseDate, $eventF[$i]['id']);
 
                 }
-
-                $jsonObject = new JsonObject();
-
-                $jsonObject->EventName = "Wow what a good event";
-                $jsonObject->EventPrice = 15;
-                $jsonObject->EventImage = "https://s3.envato.com/files/a7c4d573-a4ff-4cda-9a18-f69b302f5fce/inline_image_preview.jpg";
-                $jsonObject->EventDate = "02/01/2020";
-                $jsonObject->EventId = 3;
-
-                $jsonEvent[0] = $jsonObject;
-
-                for ($i = 0 ; $i < count($jsonEvent) ; $i++) {
-
-                    displayFutureEvent($jsonEvent[$i]->EventName, $jsonEvent[$i]->EventPrice, $jsonEvent[$i]->EventImage, $jsonEvent[$i]->EventDate, $jsonEvent[$i]->EventId);
-
-                }
-
-
 
             ?>
 
-            <?php displayFutureEvent("Excursion à la plage", 0, "https://www.w3schools.com/howto/img_snow.jpg", "14/12/2019",1); ?>
-            <?php displayFutureEvent("Balade au Sahara", 25, "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "21/11/2019", 15); ?>
-            <?php displayFutureEvent("Corentin", 25, "COCO.jpg", "21/11/2019", 90); ?>
-            <?php displayFutureEvent("Thibault", 0, "https://cdn.discordapp.com/attachments/492604256252067840/634013752076795921/wallpaper_ful_hd_16-9.png", "21/12/2019",8); ?>
+
         </main>
 
         <?php include("content/foot.php") ?>
