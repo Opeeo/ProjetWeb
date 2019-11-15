@@ -46,8 +46,8 @@
                     Evénement
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Evénement à venir</a>
-                    <a class="dropdown-item" href="#">Evénement passés</a>
+                    <a class="dropdown-item" href="futureEvent.php">Evénement à venir</a>
+                    <a class="dropdown-item" href="pastEvent.php">Evénement passés</a>
                 </div>
             </li>
 
