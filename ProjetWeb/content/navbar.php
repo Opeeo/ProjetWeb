@@ -55,19 +55,18 @@
 
             <?php
 
-            if(isset($_SESSION['logged'])) {
-                if($_SESSION['logged'] === true) {
+            if(isset($_SESSION['mail'])) {
                     echo "
                     
             <div class=\"nav-item dropdown\">
                 <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                    " . $_SESSION['username'] . "
+                    " . $_SESSION['nom'] . " " . $_SESSION['prenom'] . "
                 </a>
                 <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                     <a class=\"dropdown-item\" href=\"#\">Mon profil</a>
                     <a class=\"dropdown-item\" href=\"#\">Mon panier</a>
                     <div class=\"dropdown-divider\"></div>
-                    <a class=\"dropdown-item\" href=\"#\">Se déconnecter</a>
+                    <a class=\"dropdown-item\" href=\"content/deconnexion\">Se déconnecter</a>
                 </div>
             </div>
                     
@@ -78,14 +77,14 @@
                     
             <li class=\"register\">
                 <span style=\"display: inline-block\">
-                    <a class=\"nav-link\" href=\"content/register.php\">
+                    <a class=\"nav-link\" href=\"content/inscription\">
                         Register
                     </a>
                 </span>
             </li>
             <li class=\"login\">
                 <span style=\"display: inline-block\">
-                    <a class=\"nav-link\" href=\"content/login.php\">
+                    <a class=\"nav-link\" href=\"content/connexion\">
                         Log in
                     </a>
                 </span>
@@ -93,29 +92,7 @@
                     
                     ";
                 }
-            } else {
-
-                echo "
-                
-            <li class=\"register\">
-                <span style=\"display: inline-block\">
-                    <a class=\"nav-link\" href=\"content/register.php\">
-                        Register
-                    </a>
-                </span>
-            </li>
-            <li class=\"login\">
-                <span style=\"display: inline-block\">
-                    <a class=\"nav-link\" href=\"content/login.php\">
-                        Log in
-                    </a>
-                </span>
-            </li>
-                
-                ";
-
             }
-
             ?>
 
         </ul>

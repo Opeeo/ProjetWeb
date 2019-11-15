@@ -73,9 +73,6 @@
                 </div>
             </div>
         </div>
-
-        <?php include("content/foot/foot.php") ?>
-
     </body>
 
 </html>
