@@ -20,28 +20,28 @@
                 <div class="col-md-9">
                     <div class="contact-form">
                         <div class="form-group">
-                        <label class="control-label col-sm-2" class="text-white" for="prenom">Prénom:</label>
+                        <label class="control-label col-sm-2" class="text-white" for="prenom">Prénom :</label>
                             <div class="col-sm-10">          
                                 <input type="text" class="form-control" id="prenom" placeholder="Entrer votre prénom" name="prenom">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="nom">Nom:</label>
+                            <label class="control-label col-sm-2" for="nom">Nom :</label>
                             <div class="col-sm-10">          
                                 <input type="text" class="form-control" id="nom" placeholder="Entrer votre nom" name="nom">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="email">Email:</label>
+                            <label class="control-label col-sm-2" for="email">Email :</label>
                             <div class="col-sm-10">
                                 <input type="email" class="form-control" id="email" placeholder="Entrer votre email" name="email">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="comment">Commentaire:</label>
+                            <label class="control-label col-sm-2" for="comment">Demande :</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" rows="5" id="comment"></textarea>
                             </div>
@@ -57,7 +57,7 @@
             </div>
         </div>
 
-
         <?php include("content/foot.php") ?>
+        
     </body>
 </html>

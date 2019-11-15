@@ -36,10 +36,10 @@
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Accueil</a>
+                <a class="nav-link" href="./index.php">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Boutique</a>
+                <a class="nav-link" href="./boutique.php">Boutique</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
