@@ -21,7 +21,7 @@
                   <div class="col-md-9 col-lg-8 mx-auto">
                     <h3 class="login-heading mb-4">Votre mot de passe a bien été configuré !</h3>
                     <p><a class="text-dark" href="connexion">Se connecter</a></p>
-                    <p><a class="text-dark" href="../index.php">Retour à l'accueil</a></p>
+                    <p><a class="text-dark" href="../index">Retour à l'accueil</a></p>
                 </div>
               </div>
             </div>

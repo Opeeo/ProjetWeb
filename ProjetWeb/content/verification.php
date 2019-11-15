@@ -6,14 +6,14 @@
     $verification = file_get_contents("http://localhost:3003/verification/" . $params['mail'] . "/" . $params['code']);
 
     if($verification == "2") {
-        $_SESSION['verificationMail'] = $params['mail'];
-		header('Location: setPassword');
-		exit();
+      $_SESSION['verificationMail'] = $params['mail'];
+		  header('Location: setPassword');
+		  exit();
     } elseif($verification == "1") {
-		header('Location: wrongLink');
-		exit();
+		  header('Location: wrongLink');
+		  exit();
     } else {
-		header('Location: error');
-		exit();
+		  header('Location: error');
+		  exit();
     }
 ?>
