@@ -53,20 +53,20 @@
 
                                                 <!-- Checkboxs des catégories -->
                                                 <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="CP" required>
-                                                    <label class="custom-control-label" for="CP">Textile</label>
+                                                    <input type="checkbox" class="custom-control-input" id="CP1">
+                                                    <label class="custom-control-label" for="CP1">Textile</label>
                                                 </div>
                                                 <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="CP" required>
-                                                    <label class="custom-control-label" for="CP">Accessoires</label>
+                                                    <input type="checkbox" class="custom-control-input" id="CP2">
+                                                    <label class="custom-control-label" for="CP2">Accessoires</label>
                                                 </div>
                                                 <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="CP" required>
-                                                    <label class="custom-control-label" for="CP">Alcool</label>
+                                                    <input type="checkbox" class="custom-control-input" id="CP3">
+                                                    <label class="custom-control-label" for="CP3">Alcool</label>
                                                 </div>
                                                 <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="CP" required>
-                                                    <label class="custom-control-label" for="CP">Avions</label>
+                                                    <input type="checkbox" class="custom-control-input" id="CP4">
+                                                    <label class="custom-control-label" for="CP4">Avions</label>
                                                 </div>
 
                                                 <div class="modal-footer">
