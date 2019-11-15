@@ -1,5 +1,11 @@
 <?php
 	session_start();
+
+	if(!isset($_POST['inputEmail'])){
+        header('Location: wrongLink');
+        exit();
+    }
+
 	if (!isset($_SESSION['blocked'])) {
 		$_SESSION['blocked'] = 0;
 	}
@@ -11,13 +17,13 @@
 		$_SESSION['blocked'] = 0;
 	}
 
-	$json = file_get_contents("http://localhost:3003/connexion/".$_POST['mail']);
+	$json = file_get_contents("http://localhost:3003/connexion/".$_POST['inputEmail']);
 
 	if($json == ""){
 		$_SESSION['error'] = 1;
 		header('Location: connexion');
 		exit();
-	} elseif($json == "[]"){
+	} elseif($json == "1"){
 		$_SESSION['error'] = 6;
 		header('Location: connexion');
 		exit();
@@ -25,7 +31,7 @@
 
 	$reponse = json_decode($json);
 
-	if ($reponse[0]->mdp == $_POST['password']) {
+	if (password_verify($_POST['inputPassword'], $reponse[0]->mdp)) {
 		$_SESSION['mail'] = $reponse[0]->mail;
 		$_SESSION['statut'] = $reponse[0]->statut;
 		$_SESSION['nom'] = $reponse[0]->nom;
@@ -33,7 +39,10 @@
 		$_SESSION['centre'] = $reponse[0]->centre;
 		$_SESSION['panier'] = $reponse[0]->panier;
 		$_SESSION['error'] = 0;
-		header('Location: index.php');
+		if (!isset($_SESSION['loginFails'])) {
+			$_SESSION['loginFails'] = 0;
+		}
+		header('Location: ..\index');
 		exit();
 	} else {
 		if (!isset($_SESSION['loginFails'])) {
