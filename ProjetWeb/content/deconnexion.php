@@ -1,3 +1,5 @@
+<?php session_start();
+session_destroy()?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,8 +21,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-9 col-lg-8 mx-auto">
-                    <h3 class="login-heading mb-4">Un email de confirmation vous a été envoyé... Merci pour votre Inscription !</h3>
-                    <p><a class="text-dark" href="resendMail">Renvoyer l'email</a></p>
+                    <h3 class="login-heading mb-4">Vous avez été déconnecté !</h3>
                     <p><a class="text-dark" href="../index.php">Retour à l'accueil</a></p>
                 </div>
               </div>

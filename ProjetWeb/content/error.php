@@ -19,8 +19,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-9 col-lg-8 mx-auto">
-                    <h3 class="login-heading mb-4">Un email de confirmation vous a été envoyé... Merci pour votre Inscription !</h3>
-                    <p><a class="text-dark" href="resendMail">Renvoyer l'email</a></p>
+                    <h3 class="login-heading mb-4">Une erreur est survenue de notre côté, veuillez nous excuser du dérangement :(</h3>
                     <p><a class="text-dark" href="../index.php">Retour à l'accueil</a></p>
                 </div>
               </div>
