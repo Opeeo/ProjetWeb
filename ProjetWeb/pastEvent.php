@@ -17,10 +17,17 @@
         <?php include("content/navbar.php") ?>
 
         <main role="main" class="container text-center">
-            <?php displayPastEvent("Excursion à la plage", "https://www.w3schools.com/howto/img_snow.jpg", "14/12/2019",1); ?>
-            <?php displayPastEvent("Balade au Sahara", "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "21/11/2019", 15); ?>
-            <?php displayPastEvent("Corentin", "COCO.jpg", "21/11/2019", 90); ?>
-            <?php displayPastEvent("Thibault", "https://cdn.discordapp.com/attachments/492604256252067840/634013752076795921/wallpaper_ful_hd_16-9.png", "21/12/2019",8); ?>
+            <?php
+
+            include "content/eventVerif.php";
+
+            for ($i = 0 ; $i < count($eventP) ; $i++) {
+
+                displayPastEvent($eventP[$i]['nom'], $eventP[$i]['illust'], $eventP[$i]['date'], $eventP[$i]['id']);
+
+            }
+
+            ?>
         </main>
 
         <?php include("content/foot.php") ?>

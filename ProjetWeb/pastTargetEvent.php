@@ -21,25 +21,28 @@
 
     //$currentEvent = file_get_content(' \\ TO DO // ');
 
+    include "content/eventVerif.php";
+
+    $event = null;
+
+    for ($i = 0 ; $i < count($eventP) ; $i++) {
+
+        if ($eventP[$i]['id'] == $_GET['id']) {
+            $event = $eventP[$i];
+        }
+    }
+
     echo "
      
     <div class='row justify-content-center'>
         <div class='card' style='width: 55em;'>
-            <img src='https://static.tumblr.com/606ca6e9253aecc22b1af40c2f27e09f/nanwix9/sn8p0vdbp/tumblr_static_9mayriax30o4gokoggkgo8ww8_2048_v2.jpg' class='card-img-top'>
+            <img src='" . $event['illust'] . "' class='card-img-top'>
             <div class='card-body' style='height: 4em'>
-                <h5 class='card-title text-center'>What a good event</h5>
+                <h5 class='card-title text-center'>" . $event['nom'] . "</h5>
             </div>
             <div class='card-body'>
                 <h6 class='card-title'>Description de l'événement :</h6>
-                <p class='card-text'>En physique, un événement (on peut aussi écrire évènement) est un point de l'espace-temps, correspondant à un certain lieu à un certain instant.
-
-Par rapport à la signification courante du mot événement, l'événement physique définit la position et la date de l'évènement ordinaire, sans fournir d'information sur la nature de cet évènement ordinaire.
-
-Dans un système de coordonnées, un événement est repéré par quatre nombres, ce qui correspond au fait que l'espace-temps est de dimension 4. Par exemple, dans le système de coordonnées terrestres et l'heure GMT, on donnera la latitude, la longitude, l'altitude et l'instant.
-
-En relativité restreinte le concept d'événement a une importance capitale : dans cette théorie, les coordonnées d'espace et de temps sont inséparables (c'est différent de la relativité galiléenne qui est une approximation dans laquelle le temps et l'espace sont séparables).
-
-Les coordonnées d'espace-temps repérant un évènement dépendent du mouvement de l'observateur (le référentiel) et subissent une transformation de Lorentz quand on change de référentiel.</p>
+                <p class='card-text'>" . $event['description'] . "</p>
             </div>
         </div>
      </div>
@@ -51,7 +54,7 @@ Les coordonnées d'espace-temps repérant un évènement dépendent du mouvement
                     <h6 class='card-title text-center m-2'>Date</h6>
                 </div>
                 <div class='card-body text-center'>
-                    17/11/2019
+                    " . $event['date'] . "
                 </div>
             </div>
         </div>
@@ -67,10 +70,73 @@ Les coordonnées d'espace-temps repérant un évènement dépendent du mouvement
             <div class='card-body' style='height: 3em'>
                 <h5 class='card-title text-center'>Photos de l'événement</h5>
             </div>
+            <div class='card-body'>";
+
+
+
+
+            for ($i = 0 ; $i < count($event['photo']) ; $i++) {
+
+                $photoUser = file_get_contents("http://10.131.128.201:3003/recupUsers/" . $event['photo'][$i]['id_utilisateur']);
+                $json = json_decode($photoUser);
+
+
+
+
+                echo "
+                <div class='card'>
+                    <div class='card-body' style='height: 3.5em'>
+                        <h6 class='card-title'>" . $json[0]->prenom ." " . $json[0]->nom . "</h6>
+                    </div>
+                    <img class='card-img-top' src='" . $event['photo'][$i]['lien'] . "'>
+                    <div class='card-body'>
+                        
+                ";
+
+                if (isset($event['photo'][$i]['commentaire'])) {
+
+                    echo "<h6 class='card-title text-center'>Commentaire de la photo</h6>";
+
+                    for ($j = 0; $j < count($event['photo'][$i]['commentaire']); $j++) {
+
+                        $photoComsUser = file_get_contents("http://10.131.128.201:3003/recupUsers/" . $event['photo'][$i]['commentaire'][$j]['id_utilisateur']);
+                        $json2 = json_decode($photoComsUser);
+
+                        $comsParse1 = explode('T', $event['photo'][$i]['commentaire'][$j]['date']);
+                        $comsParse2 = explode('-', $comsParse1[0]);
+                        $comsDate = $comsParse2[2] . "/" . $comsParse2[1] . "/" . $comsParse2[0];
+
+                        echo "
+                        
+                        <div class='card'>
+                            <div class='card-body'>
+                                <h6 class='card-title'>" . $comsDate . " - " . $json2[0]->prenom . " " . $json2[0]->nom . "</h6>
+                                <p class=''>" . $event['photo'][$i]['commentaire'][$j]['contenu'] . "</p>
+                            </div>
+                        </div>
+                        
+                    ";
+
+                    }
+                }
+
+                echo "
+                    </div>
+                    </div>
+                ";
+            }
+
+            echo "
+                </div>
+                </div>
+                </div>
+            ";
+
+
             
             
             
-            <div class='card-body'>
+            /*<div class='card-body'>
                 <div class='card'>
                     <div class='card-body' style='height: 3.5em'>
                         <h6 class='card-title'>TurboMAITREPIERRE</h6>
@@ -99,8 +165,7 @@ Les coordonnées d'espace-temps repérant un évènement dépendent du mouvement
 </div>
         </div>
      </div>
-     
-     ";
+*/
 
     ?>
 </main>
