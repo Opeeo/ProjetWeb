@@ -78,21 +78,20 @@
             <li class=\"register\">
                 <span style=\"display: inline-block\">
                     <a class=\"nav-link\" href=\"content/inscription\">
-                        Register
+                        Inscription
                     </a>
                 </span>
             </li>
             <li class=\"login\">
                 <span style=\"display: inline-block\">
                     <a class=\"nav-link\" href=\"content/connexion\">
-                        Log in
+                        Connexion
                     </a>
                 </span>
             </li>
                     
                     ";
                 }
-            }
             ?>
 
         </ul>
