@@ -13,7 +13,6 @@
 
 <main role="main" class="container">
     <?php
-
     /*
      * TODO: Faire le lien avec l'API en fonction de la variable $_GET['id']
      *
@@ -86,7 +85,7 @@
 
 
                 echo "
-                <div class='card mb-3'>
+                <div class='card'>
                     <div class='card-body' style='height: 3.5em'>
                         <h6 class='card-title'>" . $json[0]->prenom ." " . $json[0]->nom . "</h6>
                     </div>
@@ -144,33 +143,21 @@
                     }
                 }
 
+
                 if (isset($_SESSION['mail'])) {
 
                     echo "
-                            <a class='button-link m-1'>
+                            <a href='ajoutCommentaire.php?eventid=" . $_GET['id'] . "&photoid=". $event['photo'][$i]['id'] ."' class='button-link m-1'>
                                 <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Ajouter un commentaire</button>
                             </a>
                     ";
                 }
 
+
                 echo "
                     </div>
-                    </div>";
-            }
-
-            if (isset($_SESSION['mail'])) {
-
-                $responseIsUserInEvent = file_get_contents("http://localhost:3003/isUserInEvent/" . $_SESSION['id'] . "/" . $_GET['id']);
-
-                if ($responseIsUserInEvent == "Trouvé !") {
-
-                    echo "
-                    <a class='button-link m-1'>
-                        <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Ajouter une photo</button>
-                    </a>
-                            ";
-
-                }
+                    </div>
+                ";
             }
 
             echo "
@@ -180,13 +167,47 @@
             ";
 
 
+            
+            
+            
+            /*<div class='card-body'>
+                <div class='card'>
+                    <div class='card-body' style='height: 3.5em'>
+                        <h6 class='card-title'>TurboMAITREPIERRE</h6>
+                    </div>
+                    
+                    <img class='card-img-top' src='http://cdn.cnn.com/cnnnext/dam/assets/190517091026-07-unusual-landscapes-travel.jpg'>
+                    <div class='card-body'>
+                        <h6 class='card-title text-center'>Commentaire de la photo</h6>
+                        
+                        <div class='card'>
+                            <div class='card-body'>
+                                <h6 class='card-title'>15/11/2019 - Clément ALBOS</h6>
+                                <p class=''>WOW la photo, trop bien.</p>
+                            </div>
+                        </div>
+                        
+                        <div class='card'>
+                            <div class='card-body'>
+                                <h6 class='card-title'>14/11/2019 - Random FDP</h6>
+                                <p class=''>Génial !</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+</div>
+        </div>
+     </div>
+*/
+
     ?>
 </main>
 
 <?php include("content/foot.php") ?>
 
 <!-- Bootstrap core JavaScript, JQuerry, Poppers-->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>

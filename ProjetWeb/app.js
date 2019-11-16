@@ -40,6 +40,103 @@ function getConnectionCommune() {
 
 }
 
+app.get("/recupProduit", (req, res) =>{
+
+    const queryString = "SELECT * FROM produits"
+    getConnectionLocale().query(queryString, (err, rows) =>{
+
+        if(err){
+
+            console.log("Fetch products error: \n" + err)
+            return
+        }
+
+        res.json(rows)
+
+    })
+})
+app.get("/addPhoto/:url/:idEvent/:idUser", (req, res) =>{
+
+    const lien = req.params.url
+    const idEvent = req.params.idEvent
+    const idUser = req.params.idUser
+    const queryString = "INSERT INTO produits(id_event, id_utilisateur, lien) VALUES (?, ?, ?)"
+
+    getConnectionLocale().query(queryString, [idEvent, idUser, lien], (err,rows, fields) => {
+       
+        console.log("Adding photo...")
+
+        if(err){
+
+            console.log("Add error: \n" + err)
+            return
+        }
+        return
+    })
+
+})
+
+app.get("/deletePhoto/:idPhoto", (req, res) =>{
+
+    const idPhoto = req.params.idPhoto
+    const queryString = "DELETE FROM photos WHERE id = ?"
+
+    getConnectionLocale().query(queryString, [idPhoto], (err,rows, fields) => {
+       
+        console.log("Deleting photo...")
+
+        if(err){
+
+            console.log("Delete error: \n" + err)
+            return
+        }
+        return
+    })
+
+})
+
+app.get("/addComs/:contenu/:idPhoto/:idUser/:date", (req, res) =>{
+
+    const contenu = req.params.contenu
+    const idPhoto = req.params.idPhoto
+    const idUser = req.params.idUser
+    const date = req.params.date
+    const queryString = "INSERT INTO commentaires(id_event, id_utilisateur, contenu, date) VALUES (?, ?, ?, ?)"
+
+    getConnectionLocale().query(queryString, [idEvent, idUser, contenu, date], (err,rows, fields) => {
+       
+        console.log("Adding coms...")
+
+        if(err){
+
+            console.log("Add error: \n" + err)
+            return
+        }
+        return
+    })
+
+})
+
+app.get("/deleteComs/:idComs", (req, res) =>{
+
+    const idComs = req.params.idComs
+    const queryString = "DELETE FROM commentaires WHERE id = ?"
+
+    getConnectionLocale().query(queryString, [idComs], (err,rows, fields) => {
+       
+        console.log("Deleting coms...")
+
+        if(err){
+
+            console.log("Delete error: \n" + err)
+            return
+        }
+        return
+    })
+
+})
+
+
 app.get("/isUserInEvent/:idUser/:idEvent", (req, res) => {
 
 
@@ -80,7 +177,7 @@ app.get("/inscEvent/:idEvent/:idUser", (req, res) => {
             return
         }
         res.send("1")
-
+        return
     })
 
 
@@ -98,7 +195,7 @@ app.get("/desinscEvent/:idEvent/:idUser", (req, res) => {
             return
         }
         res.send("1")
-
+        return
     })
 
 
@@ -117,7 +214,7 @@ app.get("/recupUsers/:id", (req, res) => {
         }
         
         res.json(rows)
-
+        return
     })
 })
 app.get("/recupEvent", (req, res) => {
@@ -132,7 +229,7 @@ app.get("/recupEvent", (req, res) => {
         }
         console.log("Fetching events....")
         res.json(rows)
-
+        return
     })
 
 })
@@ -149,7 +246,7 @@ app.get("/recupPhoto", (req, res) => {
         }
         console.log("Fetching photos....")
         res.json(rows)
-
+        return
     })
 
 })
@@ -167,7 +264,7 @@ app.get("/recupComs", (req, res) => {
         }
         console.log("Fetching coms....")
         res.json(rows)
-
+        return
     })
 
 })
