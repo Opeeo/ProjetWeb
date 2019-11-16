@@ -160,46 +160,20 @@
                 ";
             }
 
+            //if(isset())
+
             echo "
                 </div>
+                
+                
+                ";
+
+
+            echo "
                 </div>
                 </div>
             ";
 
-
-            
-            
-            
-            /*<div class='card-body'>
-                <div class='card'>
-                    <div class='card-body' style='height: 3.5em'>
-                        <h6 class='card-title'>TurboMAITREPIERRE</h6>
-                    </div>
-                    
-                    <img class='card-img-top' src='http://cdn.cnn.com/cnnnext/dam/assets/190517091026-07-unusual-landscapes-travel.jpg'>
-                    <div class='card-body'>
-                        <h6 class='card-title text-center'>Commentaire de la photo</h6>
-                        
-                        <div class='card'>
-                            <div class='card-body'>
-                                <h6 class='card-title'>15/11/2019 - Clément ALBOS</h6>
-                                <p class=''>WOW la photo, trop bien.</p>
-                            </div>
-                        </div>
-                        
-                        <div class='card'>
-                            <div class='card-body'>
-                                <h6 class='card-title'>14/11/2019 - Random FDP</h6>
-                                <p class=''>Génial !</p>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-</div>
-        </div>
-     </div>
-*/
 
     ?>
 </main>
