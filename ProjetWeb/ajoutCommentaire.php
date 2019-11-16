@@ -20,15 +20,26 @@
 
         <div class="row add-container">
             <div class="col-md-10 col-lg-9 mx-auto">
-                <h3 class="login-heading mb-4">Ajouter un nouvel événement :</h3>
+                <h3 class="login-heading mb-4">Ajouter un Commentaire :</h3>
 
                 <!-- TODO: Action du formulaire à modifier -->
 
-                <form action="content/scriptAjoutCommentaire.php?eventid=$_GET['eventid']&photoid=$_GET['photoid']" method="post">
+                <form action="content/scriptAjoutCommentaire.php?
+
+                <?php
+
+                echo "eventid=" . $_GET['eventid'] . "&photoid=" . $_GET['photoid'];
+
+
+                ?>
+
+
+
+
+                " method="post">
 
                     <div class="form-label-group">
-                        <textarea type="text" class="form-control" id="inputComs" name="eventDesc" rows="9" placeholder="Commentaire" required></textarea>
-                        <label for="inputComs">Commentaire :</label>
+                        <textarea type="text" class="form-control" id="inputComs" name="contenu" rows="9" placeholder="Commentaire" required></textarea>
                     </div>
 
                     <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Envoyer le commentaire</button>
