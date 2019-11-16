@@ -2,7 +2,7 @@
 	session_start();
 
 	if(!isset($_POST['inputEmail'])){
-        header('Location: wrongLink');
+        header('Location: wrongLink.php');
         exit();
     }
 
@@ -11,7 +11,7 @@
 	}
 	if ($_SESSION['blocked'] == 1 && (time() - $_SESSION['chrono']) < 500) {
 		$_SESSION['error'] = 5;
-		header('Location: connexion');
+		header('Location: connexion.php');
 		exit();
 	}	elseif ($_SESSION['blocked'] == 1) {
 		$_SESSION['blocked'] = 0;
@@ -21,11 +21,11 @@
 
 	if($json == ""){
 		$_SESSION['error'] = 1;
-		header('Location: connexion');
+		header('Location: connexion.php');
 		exit();
 	} elseif($json == "1"){
 		$_SESSION['error'] = 6;
-		header('Location: connexion');
+		header('Location: connexion.php');
 		exit();
 	}
 
@@ -33,7 +33,7 @@
 
 	if($reponse[0]->statut == "0"){
 		$_SESSION['error'] = 8;
-		header('Location: connexion');
+		header('Location: connexion.php');
 		exit();
 	}
 
@@ -48,7 +48,7 @@
 		if (!isset($_SESSION['loginFails'])) {
 			$_SESSION['loginFails'] = 0;
 		}
-		header('Location: ..\index');
+		header('Location: ..\index.php');
 		exit();
 	} else {
 		if (!isset($_SESSION['loginFails'])) {
@@ -57,12 +57,12 @@
 			$_SESSION['loginFails']++;
 			if ($_SESSION['loginFails'] >= 3) {
 				$_SESSION['error'] = 4;
-				header('Location: connexion');
+				header('Location: connexion.php');
 				exit();
 			}
 		}
 		$_SESSION['error'] = 3;
-		header('Location: connexion');
+		header('Location: connexion.php');
 		exit();
 	}
 ?>

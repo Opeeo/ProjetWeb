@@ -19,7 +19,7 @@
 
         <?php 
             if(isset($_SESSION['mail'])){
-                header('Location: wrongLink');
+                header('Location: wrongLink.php');
                 exit();
             }
             include("controle-connexion.php") ?>
@@ -63,7 +63,7 @@
 
                                         <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Inscription</button>
                                         
-                                        <center><p>Vous avez déjà un compte ? <a class="text-dark" href="connexion">Connexion</a></p></center>
+                                        <center><p>Vous avez déjà un compte ? <a class="text-dark" href="connexion.php">Connexion</a></p></center>
                                         <center><p><a class="text-dark" href="../index.php">Retour à l'accueil</a></p></center>
                                     </form>
                                 </div>

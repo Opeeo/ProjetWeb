@@ -5,7 +5,7 @@
 	require '..\..\vendor\autoload.php';
     
     if(isset($_SESSION['mail']) || !isset($_SESSION['corpsMail'])){
-        header('Location: wrongLink');
+        header('Location: wrongLink.php');
         exit();
     }
 
@@ -27,9 +27,9 @@
 		$mail->AddAddress($_SESSION['mailConfirmation']);
 
 		$mail->Send();
-		header('Location: verifRegister');
+		header('Location: verifRegister.php');
 		exit();
 	} catch (Exception $e) {
-		header('Location: error');
+		header('Location: error.php');
 		exit();
 	} ?>

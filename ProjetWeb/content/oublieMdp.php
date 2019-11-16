@@ -18,7 +18,7 @@
     <body>
 
         <?php if(isset($_SESSION['mail'])){
-                header('Location: wrongLink');
+                header('Location: wrongLink.php');
                 exit();
             }
             include("controle-connexion.php") ?>
@@ -39,7 +39,7 @@
 
                                         <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Envoyer l'e-mail</button>
 
-                                        <center><p><a class="text-dark" href="connexion">Retourner à la page de connexion</a></p></center>
+                                        <center><p><a class="text-dark" href="connexion.php">Retourner à la page de connexion</a></p></center>
                                     </form>
                                 </div>
                             </div>

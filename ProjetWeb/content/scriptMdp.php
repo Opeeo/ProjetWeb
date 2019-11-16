@@ -3,7 +3,7 @@
     session_start();
 
     if(!isset($_SESSION['verificationMail'])){
-        header('Location: wrongLink');
+        header('Location: wrongLink.php');
         exit();
     }
 
@@ -22,10 +22,10 @@
     unset($_SESSION['verificationMail']);
 
     if($reponse == "2"){;
-		header('Location: mdpChange');
+		header('Location: mdpChange.php');
 		exit();
 	} else {
-        header('Location: error');
+        header('Location: error.php');
         exit();
     }
 ?>

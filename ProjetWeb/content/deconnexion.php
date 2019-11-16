@@ -15,7 +15,7 @@ session_destroy()?>
 <body>
   <?php 
     if(!isset($_SESSION['mail'])){
-      header('Location: wrongLink');
+      header('Location: wrongLink.php');
       exit();
     } 
   ?>
@@ -28,7 +28,7 @@ session_destroy()?>
               <div class="row">
                 <div class="col-md-9 col-lg-8 mx-auto">
                   <h3 class="login-heading mb-4">Vous avez été déconnecté !</h3>
-                  <p><a class="text-dark" href="../index">Retour à l'accueil</a></p>
+                  <p><a class="text-dark" href="../index.php">Retour à l'accueil</a></p>
               </div>
             </div>
           </div>

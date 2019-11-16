@@ -5,7 +5,7 @@
 	require '..\..\vendor\autoload.php';
 
 	if(!isset($_POST['inputEmail'])){
-        header('Location: wrongLink');
+        header('Location: wrongLink.php');
         exit();
     }
 
@@ -14,7 +14,7 @@
 	}
 	if ($_SESSION['blocked'] == 1 && (time() - $_SESSION['chrono']) < 500) {
 		$_SESSION['error'] = 5;
-		header('Location: inscription');
+		header('Location: inscription.php');
 		exit();
 	}	elseif ($_SESSION['blocked'] == 1) {
 		$_SESSION['blocked'] = 0;
@@ -32,16 +32,16 @@
 
 	if($json == ""){
 		$_SESSION['error'] = 1;
-		header('Location: inscription');
+		header('Location: inscription.php');
 		exit();
 	} elseif($json == "2"){
 		$_SESSION['error'] = 2;
-		header('Location: inscription');
+		header('Location: inscription.php');
 		exit();
 	}
 
 	try {
-		$_SESSION['corpsMail'] = "<p>Plus qu'une derni&egrave;re &eacute;tape pour pouvoir profiter de toutes les fonctionnalit&eacute;s du site ! Cliquez sur le lien suivant pour valider votre adresse e-mail et d&eacute;finir un mot de passe pour votre compte :<br><a href=\"http://localhost/ProjetWeb/content/verification?mail=" . $_POST['inputEmail'] . "&code=" . $verifcode . "\">le lien suivant</a><br><br>Bienvenue parmi nous :)</p>";
+		$_SESSION['corpsMail'] = "<p>Plus qu'une derni&egrave;re &eacute;tape pour pouvoir profiter de toutes les fonctionnalit&eacute;s du site ! Cliquez sur le lien suivant pour valider votre adresse e-mail et d&eacute;finir un mot de passe pour votre compte :<br><a href=\"http://localhost/ProjetWeb/content/verification.php?mail=" . $_POST['inputEmail'] . "&code=" . $verifcode . "\">le lien suivant</a><br><br>Bienvenue parmi nous :)</p>";
 		$_SESSION['mailConfirmation'] = $_POST['inputEmail'];
 
 		$mail = new PHPMailer();
@@ -60,11 +60,11 @@
 		$mail->AddAddress($_POST['inputEmail']);
 
 		$mail->Send();
-		header('Location: verifRegister');
+		header('Location: verifRegister.php');
 		exit();
 	} catch (Exception $e) {
 		$_SESSION['error'] = 7;
-		header('Location: inscription');
+		header('Location: inscription.php');
 		exit();
 	}
 

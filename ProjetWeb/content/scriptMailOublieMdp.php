@@ -5,7 +5,7 @@
 	require '..\..\vendor\autoload.php';
     
     if(isset($_SESSION['mail'])){
-        header('Location: wrongLink');
+        header('Location: wrongLink.php');
         exit();
     }
 
@@ -19,14 +19,14 @@
 	$reponse = file_get_contents("http://localhost:3003/oublieMdp/".$_POST['inputEmail']."/".$verifcode);
 
 	if($reponse == "1"){
-		header('Location: wrongLink');
+		header('Location: wrongLink.php');
 		exit();
 	} elseif($reponse == ""){
-		header('Location: error');
+		header('Location: error.php');
 		exit();
 	}
 
-    $_SESSION['corpsMail'] = "<p>Cliquez sur le lien suivant pour r&eacute;initialiser votre mot de passe :<br><a href=\"http://localhost/ProjetWeb/content/verification?mail=" . $_POST['inputEmail'] . "&code=" . $verifcode . "\">le lien suivant</a><br><br></p>";
+    $_SESSION['corpsMail'] = "<p>Cliquez sur le lien suivant pour r&eacute;initialiser votre mot de passe :<br><a href=\"http://localhost/ProjetWeb/content/verification.php?mail=" . $_POST['inputEmail'] . "&code=" . $verifcode . "\">le lien suivant</a><br><br></p>";
 
     try {
 		$mail = new PHPMailer();
@@ -45,9 +45,9 @@
 		$mail->AddAddress($_POST['inputEmail']);
 
 		$mail->Send();
-		header('Location: verifReinit');
+		header('Location: verifReinit.php');
 		exit();
 	} catch (Exception $e) {
-		header('Location: error');
+		header('Location: error.php');
 		exit();
 	} ?>

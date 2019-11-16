@@ -7,13 +7,13 @@
 
     if($verification == "2") {
       $_SESSION['verificationMail'] = $params['mail'];
-		  header('Location: setPassword');
+		  header('Location: setPassword.php');
 		  exit();
     } elseif($verification == "1") {
-		  header('Location: wrongLink');
+		  header('Location: wrongLink.php');
 		  exit();
     } else {
-		  header('Location: error');
+		  header('Location: error.php');
 		  exit();
     }
 ?>

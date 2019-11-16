@@ -18,7 +18,7 @@
     <body>
 
         <?php if(isset($_SESSION['mail'])){
-                header('Location: wrongLink');
+                header('Location: wrongLink.php');
                 exit();
             }
             include("controle-connexion.php") ?>
@@ -42,10 +42,10 @@
                                             <label for="inputPassword">Mot de passe</label>
                                         </div>
 
-                                        <center><p><a class="text-dark" href="oublieMdp">Mot de passe oublié ?</a></p></center>
+                                        <center><p><a class="text-dark" href="oublieMdp.php">Mot de passe oublié ?</a></p></center>
                                         <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Connexion</button>
 
-                                        <center><p>Vous n'avez encore de compte ? <a class="text-dark" href="inscription">Inscription</a></p></center>
+                                        <center><p>Vous n'avez encore de compte ? <a class="text-dark" href="inscription.php">Inscription</a></p></center>
                                         <center><p><a class="text-dark" href="../index.php">Retour à l'accueil</a></p></center>
                                     </form>
                                 </div>
