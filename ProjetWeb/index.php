@@ -10,7 +10,10 @@
 
   <body>
 
-      <?php include("content/navbar.php") ?>
+    <header>
+        <?php include("content/navbar.php") ?>
+    </header>
+
     
     <main role="main" class="container">
             <h1 class="mt-5">Point faible ? Trop fort.</h1>

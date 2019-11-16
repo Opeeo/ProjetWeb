@@ -6,3 +6,4 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 <!-- CSS navbar -->
 <link href="assets/css/navbar.css" rel="stylesheet">
+<link href="assets/css/stickyFooter" rel="stylesheet">

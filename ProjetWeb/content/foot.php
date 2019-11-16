@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="assets/css/stickyFooter.css">
+
 <footer class="footer">
     <div class="text-center text-white bg-black">
         <span><a class="text-white" href="http://localhost/ProjetWeb/contact.php"><strong>Contact</a> -</strong></span>

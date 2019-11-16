@@ -77,7 +77,7 @@
 
             for ($i = 0 ; $i < count($event['photo']) ; $i++) {
 
-                $photoUser = file_get_contents("http://10.131.128.201:3003/recupUsers/" . $event['photo'][$i]['id_utilisateur']);
+                $photoUser = file_get_contents("http://localhost:3003/recupUsers/" . $event['photo'][$i]['id_utilisateur']);
                 $json = json_decode($photoUser);
 
 
@@ -99,7 +99,7 @@
 
                     for ($j = 0; $j < count($event['photo'][$i]['commentaire']); $j++) {
 
-                        $photoComsUser = file_get_contents("http://10.131.128.201:3003/recupUsers/" . $event['photo'][$i]['commentaire'][$j]['id_utilisateur']);
+                        $photoComsUser = file_get_contents("http://localhost:3003/recupUsers/" . $event['photo'][$i]['commentaire'][$j]['id_utilisateur']);
                         $json2 = json_decode($photoComsUser);
 
                         $comsParse1 = explode('T', $event['photo'][$i]['commentaire'][$j]['date']);

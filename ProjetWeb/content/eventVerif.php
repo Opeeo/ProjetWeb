@@ -1,6 +1,6 @@
 <?php
 
-$url = "http://10.131.128.201:3003";
+$url = "http://localhost:3003";
 
 $jsonEvent = file_get_contents($url . "/recupEvent");
 $resultEvent = json_decode($jsonEvent);
