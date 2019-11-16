@@ -1,7 +1,7 @@
-
-<!-- Page d'ajout de produit à la boutique -->
+<?php session_start();?>
 
 <!DOCTYPE html>
+
 <html lang="fr">
     <head>
         <?php include("content/head.php") // importation du head (stylesheet custom et FrameWork)  ?>

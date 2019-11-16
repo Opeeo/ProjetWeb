@@ -1,10 +1,10 @@
 <?php
-
+    session_start();
     include "content/displayFutureEvent.php";
-
 ?>
 
 <!DOCTYPE html>
+
 <html lang="fr">
     <head>
         <?php include("content/head.php") ?>
