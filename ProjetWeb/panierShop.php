@@ -34,7 +34,7 @@
               <input type="number" value="1" min="1">
             </div>
             <div class="produit-suppr">
-              <button class="produit-suppression btn-danger btn-sm">x</button>
+              <button class="produit-suppression btn-danger btn-sm"><img src="assets/vendors/pictures/letter-x.png" alt="delete" height=15 width=15></button>
           </div>
           <div class="produit-ligne-prix">10.00</div>
         </div>
@@ -53,7 +53,7 @@
               <input type="number" value="1" min="1">
             </div>
           <div class="produit-suppr">
-            <button class="produit-suppression btn-danger btn-sm">x</button>
+            <button class="produit-suppression btn-danger btn-sm"><img src="assets/vendors/pictures/letter-x.png" alt="delete" height=15 width=15></button>
           </div>
           <div class="produit-ligne-prix">40.00</div>
         </div>
