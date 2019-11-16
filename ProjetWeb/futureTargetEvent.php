@@ -16,7 +16,6 @@
 <main role="main" class="container">
     <?php
 
-        session_start();
         /*
          * TODO: Faire le lien avec l'API en fonction de la variable $_GET['id']
          *
@@ -35,7 +34,7 @@
                 $event = $eventF[$i];
             }
         }
-        var_dump($event);
+
 
         echo "
      
@@ -76,7 +75,10 @@
         </div>
      </div>";
 
-     $recupInscription = file_get_contents("http://localhost:3003/isUserInEvent/" . $_SESSION['id'] . "/" . $event['id']);
+     if(isset($_SESSION['mail'])){
+
+
+        $recupInscription = file_get_contents("http://localhost:3003/isUserInEvent/" . $_SESSION['id'] . "/" . $event['id']);
      
     
         if($recupInscription != ""){
@@ -96,7 +98,7 @@
             echo "
 
             <div class='row justify-content-center'>
-                <a class='button-link' href='content/inscripEvent'>
+                <a class='button-link' href='content/inscripEvent?idEvent=" . $event['id'] . "'>
                    <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>S'inscrire</button>
                 </a>
             </div>
@@ -105,6 +107,20 @@
 
 
         }
+     }
+     else{
+
+        echo "
+
+        <div class='row justify-content-center'>
+            <a class='button-link'>
+               <button class='disabled btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Vous devez etre connecter pour vous inscrire</button>
+            </a>
+        </div>
+           
+           "; 
+        
+     }
 
 
     

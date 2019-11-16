@@ -72,7 +72,7 @@ app.get("/inscEvent/:idEvent/:idUser", (req, res) => {
 
     const idEvent = req.params.idEvent
     const idUser = req.params.idUser
-    const queryStringInsc = "INSERT INTO participation(id_event, id_utilisateur) VALUES (?, ?)" 
+    const queryStringInsc = "INSERT INTO participations(id_evenement, id_utilisateur) VALUES (?, ?)" 
 
     getConnectionLocale().query(queryStringInsc, [idEvent, idUser], (err,rows, fields) => {
         if(err){
@@ -90,7 +90,7 @@ app.get("/desinscEvent/:idEvent/:idUser", (req, res) => {
 
     const idEvent = req.params.idEvent
     const idUser = req.params.idUser
-    const queryStringInsc = "DELETE FROM participation WHERE id_evenement = ? AND id_utilisateur = ?" 
+    const queryStringInsc = "DELETE FROM participations WHERE id_evenement = ? AND id_utilisateur = ?" 
 
     getConnectionLocale().query(queryStringInsc, [idEvent, idUser], (err,rows, fields) => {
         if(err){
