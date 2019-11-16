@@ -1,5 +1,11 @@
-<?php session_start();
-session_destroy()?>
+<?php 
+  session_start();
+  if(!isset($_SESSION['mail'])){
+    header('Location: wrongLink.php');
+    exit();
+  }
+  session_destroy()
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,10 +20,6 @@ session_destroy()?>
 </head>
 <body>
   <?php 
-    if(!isset($_SESSION['mail'])){
-      header('Location: wrongLink.php');
-      exit();
-    } 
   ?>
   <div class="container-fluid">
       <div class="row no-gutter">
