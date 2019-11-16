@@ -15,6 +15,8 @@
 
 <main role="main" class="container">
     <?php
+
+        session_start();
         /*
          * TODO: Faire le lien avec l'API en fonction de la variable $_GET['id']
          *
@@ -33,7 +35,7 @@
                 $event = $eventF[$i];
             }
         }
-
+        var_dump($event);
 
         echo "
      
@@ -72,15 +74,41 @@
                 </div>
             </div>
         </div>
-     </div>
+     </div>";
+
+     $recupInscription = file_get_contents("http://localhost:3003/isUserInEvent/" . $_SESSION['id'] . "/" . $event['id']);
      
-     <div class='row justify-content-center'>
-         <a class='button-link' href='#'>
-            <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Inscription</button>
-         </a>
-     </div>
-        
-        ";
+    
+        if($recupInscription != ""){
+
+             echo "
+
+         <div class='row justify-content-center'>
+             <a class='button-link' href='content/desinscripEvent?idEvent=" . $event['id'] . "'>
+                <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Se désinscrire</button>
+             </a>
+         </div>
+            
+            "; 
+        }
+        else{
+
+            echo "
+
+            <div class='row justify-content-center'>
+                <a class='button-link' href='content/inscripEvent'>
+                   <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>S'inscrire</button>
+                </a>
+            </div>
+               
+               "; 
+
+
+        }
+
+
+    
+ 
 
     ?>
 </main>

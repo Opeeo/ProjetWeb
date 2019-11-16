@@ -40,11 +40,57 @@ function getConnectionCommune() {
 
 }
 
+app.get("/isUserInEvent/:idUser/:idEvent", (req, res) => {
+
+
+    const idUser = req.params.idUser
+    const idEvent = req.params.idEvent
+
+    const queryStringIsInsc = "SELECT * FROM participations WHERE id_evenement = ? AND id_utilisateur = ?" 
+
+    getConnectionLocale().query(queryStringIsInsc, [idEvent, idUser], (err,rows, fields) => {
+       
+        console.log("Fetching user....")
+
+        if(err){
+
+            console.log("Fetch events error: \n" + err)
+            return
+        }
+        if(rows != ""){
+
+            res.send("Trouvé !") 
+        }
+
+        res.end()
+    })
+
+
+})
+
 app.get("/inscEvent/:idEvent/:idUser", (req, res) => {
 
     const idEvent = req.params.idEvent
     const idUser = req.params.idUser
     const queryStringInsc = "INSERT INTO participation(id_event, id_utilisateur) VALUES (?, ?)" 
+
+    getConnectionLocale().query(queryStringInsc, [idEvent, idUser], (err,rows, fields) => {
+        if(err){
+            console.log("Fetch events error: \n" + err)
+            return
+        }
+        res.send("1")
+
+    })
+
+
+})
+
+app.get("/desinscEvent/:idEvent/:idUser", (req, res) => {
+
+    const idEvent = req.params.idEvent
+    const idUser = req.params.idUser
+    const queryStringInsc = "DELETE FROM participation WHERE id_evenement = ? AND id_utilisateur = ?" 
 
     getConnectionLocale().query(queryStringInsc, [idEvent, idUser], (err,rows, fields) => {
         if(err){
@@ -69,7 +115,7 @@ app.get("/recupUsers/:id", (req, res) => {
             console.log("Fetch user error: \n" + err)
             return
         }
-        console.log(rows)
+        
         res.json(rows)
 
     })

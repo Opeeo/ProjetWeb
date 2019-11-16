@@ -44,6 +44,7 @@
 		$_SESSION['prenom'] = $reponse[0]->prenom;
 		$_SESSION['centre'] = $reponse[0]->centre;
 		$_SESSION['panier'] = $reponse[0]->panier;
+		$_SESSION['id'] = $reponse[0]->id;
 		$_SESSION['error'] = 0;
 		if (!isset($_SESSION['loginFails'])) {
 			$_SESSION['loginFails'] = 0;
