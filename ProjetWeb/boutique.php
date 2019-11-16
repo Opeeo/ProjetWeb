@@ -6,13 +6,13 @@
     <head>
         <?php //include("content/head.php") ?>
         <title>Boutique</title>
-        <link rel="stylesheet" href="./assets/css/boutique.css">
+       <link rel="stylesheet" href="./assets/css/boutique.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <!-- CSS slider -->
-        <link href="assets/css/slider.css" rel="stylesheet">
+       <link href="assets/css/slider.css" rel="stylesheet">
     </head>
     <body>
         <?php include("content/navbar.php") ?>
@@ -23,11 +23,29 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <h4 class="my-3">Boutique BDE</h4>
-                        <div class="list-group">
+                        <div class="list-group ">
                             <!-- Trigger modal -->
                             <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">Trier par...</button>
-                            <button type="submit" class="btn btn-success">Ajouter au panier</button>
-                        
+                            <div class="container" style="display: inline-block">
+                            <?php 
+                            
+                                include "content/displayProduct.php";
+
+                                $jsonProd = file_get_contents("http://localhost:3003/recupProduit");
+
+                                $resultProd = json_decode($jsonProd);
+
+                                if(!empty($resultProd)){
+
+                                    for($i = 0 ; $i < count($resultProd) ;  $i++){
+
+                                        displayProduct($resultProd[$i]->nom,$resultProd[$i]->prix,$resultProd[$i]->quantite,$resultProd[$i]->img,$resultProd[$i]->id);
+                                    }
+
+                                }
+                            
+                            ?>
+                            </div>
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
