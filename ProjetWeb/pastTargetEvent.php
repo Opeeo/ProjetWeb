@@ -19,7 +19,7 @@
      *
      *
      */
-    
+
 
     //$currentEvent = file_get_content(' \\ TO DO // ');
 
@@ -94,6 +94,17 @@
                     <div class='card-body'>
                         
                 ";
+
+                if(isset($_SESSION['mail'])) {
+                    if($_SESSION['statut'] == 2) {
+                        echo "
+                                <a class='button-link m-1' style='width: 20em'>
+                                    <button class='btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold custom-button' style='background-color: red'>Supprimer photo</button>
+                                </a>
+                            </div>
+                                ";
+                    }
+                }
 
                 if (isset($event['photo'][$i]['commentaire'])) {
 
