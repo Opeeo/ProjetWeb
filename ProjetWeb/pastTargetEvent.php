@@ -19,6 +19,7 @@
      *
      *
      */
+    
 
     //$currentEvent = file_get_content(' \\ TO DO // ');
 
@@ -114,9 +115,20 @@
                                 <h6 class='card-title'>" . $comsDate . " - " . $json2[0]->prenom . " " . $json2[0]->nom . "</h6>
                                 <p class=''>" . $event['photo'][$i]['commentaire'][$j]['contenu'] . "</p>
                             </div>
-                        </div>
+                        
                         
                     ";
+
+                        if(isset($_SESSION['mail'])) {
+                            if($_SESSION['statut'] == 2) {
+                                echo "
+                                <a class='button-link m-1' style='width: 20em'>
+                                    <button class='btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold custom-button' style='background-color: red'>Supprimer commentaire</button>
+                                </a>
+                            </div>
+                                ";
+                            }
+                        }
 
                     }
                 }
