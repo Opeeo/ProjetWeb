@@ -1,0 +1,125 @@
+/* Global */
+ 
+.produit-image {
+    float: left;
+    width: 20%;
+}
+   
+.produit-detail {
+    float: left;
+    width: 37%;
+}
+
+.produit-prix {
+    float: left;
+    width: 12%;
+}
+
+.produit-quantite {
+    float: left;
+    width: 10%;
+}
+
+.produit-suppr {
+    float: left;
+    width: 9%;
+}
+
+.produit-ligne-prix {
+    float: left;
+    width: 12%;
+    text-align: right;
+}
+   
+/* * Replace le clearfix bootstrap si jamais ca marche pas
+.group:before, .panier:before, .nom-colonne:before, .produit:before, .total-produits:before,
+.group:after,
+.panier:after,
+.nom-colonne:after,
+.produit:after,
+.total-produits:after {
+content: '';
+display: table;
+}*/
+
+/* *.group:after, .panier:after, .nom-colonne:after, .produit:after, .total-produits:after {
+clear: both;
+}
+
+.group, .panier, .nom-colonne, .produit, .total-produits {
+zoom: 1;
+}
+
+/* ! Clearfix & Met le signe € */
+.produit .produit-prix:before, .produit .produit-ligne-prix:before, .total-valeur:before {
+content: '€';
+}
+
+/* panier/Header */
+.panier {
+    padding: 60px 50px 60px 50px;
+}
+
+h1 {
+    font-weight: 100;
+}
+
+label {
+    color: #aaa;
+}
+
+.panier {
+    margin-top: -45px;
+}
+
+/* Header des colonnes */
+.nom-colonne label {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Supprime les sigles Image & Supprimer */
+.nom-colonne .produit-image, .nom-colonne .produit-detail, .nom-colonne .produit-suppr {
+    text-indent: -9999px;
+}
+
+/* Entrées produit (bande séparatrice) */
+.produit {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.produit .produit-image {
+    text-align: center;
+}
+
+.produit .produit-image img {
+    width: 100px;
+}
+
+.produit .produit-quantite input {
+    width: 40px;
+}
+
+/* Totaux */
+.totals .total-produits {
+    float: right;
+    clear: both;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.totals .total-produits label {
+    float: left;
+    clear: both;
+    width: 79%;
+    text-align: right;
+}
+
+.totals .total-produits .total-valeur {
+    float: right;
+    width: 21%;
+    text-align: right;
+}
