@@ -55,14 +55,42 @@ app.get("/recupProduit", (req, res) =>{
 
     })
 })
+
+app.get("/addEvent/:nom/:date/:desc/:prix/:url/:rec", (req, res) =>{
+
+    const lien = req.params.url
+    const nom = req.params.nom
+    const date = req.params.date
+    const desc = req.params.desc
+    const prix = req.params.prix
+    const rec = req.params.rec
+
+
+    const queryString = "INSERT INTO photos(nom, date, description, image, recurrence, prix) VALUES (?, ?, ?, ?, ?, ?)"
+
+    getConnectionLocale().query(queryString, [nom, date, desc, lien, rec, prix], (err,rows, fields) => {
+       
+        console.log("Adding event...")
+
+        if(err){
+
+            console.log("Add error: \n" + err)
+            return
+        }
+        res.end()
+    })
+
+
+})
+
 app.get("/addPhoto/:url/:idEvent/:idUser", (req, res) =>{
 
     const lien = req.params.url
     const idEvent = req.params.idEvent
     const idUser = req.params.idUser
-    const queryString = "INSERT INTO produits(id_event, id_utilisateur, lien) VALUES (?, ?, ?)"
+    const queryString = "INSERT INTO photos(id_utilisateur, id_evenement, lien) VALUES (?, ?, ?)"
 
-    getConnectionLocale().query(queryString, [idEvent, idUser, lien], (err,rows, fields) => {
+    getConnectionLocale().query(queryString, [idUser, idEvent, lien], (err,rows, fields) => {
        
         console.log("Adding photo...")
 
@@ -71,7 +99,7 @@ app.get("/addPhoto/:url/:idEvent/:idUser", (req, res) =>{
             console.log("Add error: \n" + err)
             return
         }
-        return
+        res.end()
     })
 
 })
@@ -101,9 +129,9 @@ app.get("/addComs/:contenu/:idPhoto/:idUser/:date", (req, res) =>{
     const idPhoto = req.params.idPhoto
     const idUser = req.params.idUser
     const date = req.params.date
-    const queryString = "INSERT INTO commentaires(id_event, id_utilisateur, contenu, date) VALUES (?, ?, ?, ?)"
+    const queryString = "INSERT INTO commentaires(id_photo, id_utilisateur, contenu, date) VALUES (?, ?, ?, ?)"
 
-    getConnectionLocale().query(queryString, [idEvent, idUser, contenu, date], (err,rows, fields) => {
+    getConnectionLocale().query(queryString, [idPhoto, idUser, contenu, date], (err,rows, fields) => {
        
         console.log("Adding coms...")
 
@@ -112,7 +140,7 @@ app.get("/addComs/:contenu/:idPhoto/:idUser/:date", (req, res) =>{
             console.log("Add error: \n" + err)
             return
         }
-        return
+        res.end()
     })
 
 })

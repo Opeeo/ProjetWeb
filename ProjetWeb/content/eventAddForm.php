@@ -9,7 +9,7 @@
 
             <!-- TODO: Action du formulaire à modifier -->
 
-            <form action="eventAdd.php" method="post">
+            <form action="content/scriptAjoutEvent.php" method="post">
 
                 <div class="form-inline text-center">
 
