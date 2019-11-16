@@ -18,6 +18,6 @@
         <span><a class="text-white" href="http://localhost/ProjetWeb/cgv.php"><strong>CGV</a></strong></span>
     </div>
     
-    <script type="text/javascript" src="acceptCookies.js"></script>
+    <script type="text/javascript" src="content/acceptCookies.js"></script>
 </footer>
 
