@@ -1,16 +1,6 @@
-<?php
+<?php session_start();?>
 
-/*
- *  TODO: Implémenter les variable de session
- *
- *  Variable de session utilisées ici :
- *      - 'logged' - Utilisé pour savoir si l'utilisateur est connecté
- *      - 'username' - Utilisé pour récupérer le nom et prenom de l'utilisateur
- *
- *
- */
-
-?>
+<!DOCTYPE html>
 
 <nav style="background-color: black; padding-top: 0px; padding-bottom: 0px" class="navbar navbar-expand-lg navbar-custom navbar-dark fixed-top">
     <a style="margin-right: 60px" class="navbar-brand" href="index.php">
