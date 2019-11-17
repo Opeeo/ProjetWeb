@@ -24,30 +24,7 @@
                         <div class="list-group ">
                             <!-- Trigger modal -->
                             <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">Trier par...</button>
-                            <div class="container" style="display: inline-block">
-                            <?php 
-                            
-                                include "content/displayProduct.php";
 
-                                $jsonProd = file_get_contents("http://localhost:3003/recupProduit");
-
-                                $resultProd = json_decode($jsonProd);
-
-                                if(!empty($resultProd)){
-
-                                    for($i = 0 ; $i < count($resultProd) ;  $i++){
-
-                                        $name = str_replace("*", " ", $resultProd[$i]->nom);
-
-                                        $img = str_replace("*", "/", $resultProd[$i]->img);
-
-                                        displayProduct($name,$resultProd[$i]->prix,$resultProd[$i]->quantite,$img,$resultProd[$i]->id);
-                                    }
-
-                                }
-                            
-                            ?>
-                            </div>
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -56,7 +33,6 @@
                                             <h5 class="modal-title" id="exampleModalLongTitle">Choisissez vos filtres :</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                    
                                         <div class="modal-body">
                                             <form>
 
@@ -102,6 +78,30 @@
                             </div>
                         </div>                       
                     </div>
+                </div>
+                <div class="row justify-content-center">
+                    <?php
+
+                    include "content/displayProduct.php";
+
+                    $jsonProd = file_get_contents("http://localhost:3003/recupProduit");
+
+                    $resultProd = json_decode($jsonProd);
+
+                    if(!empty($resultProd)){
+
+                        for($i = 0 ; $i < count($resultProd) ;  $i++){
+
+                            $name = str_replace("*", " ", $resultProd[$i]->nom);
+
+                            $img = str_replace("*", "/", $resultProd[$i]->img);
+
+                            displayProduct($name,$resultProd[$i]->prix,$resultProd[$i]->quantite,$img,$resultProd[$i]->id);
+                        }
+
+                    }
+
+                    ?>
                 </div>
             </div>
         </main>
