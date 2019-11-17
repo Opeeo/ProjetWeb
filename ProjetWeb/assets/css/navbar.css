@@ -72,3 +72,7 @@
    background-color: red;
    color: #0056b3;
 }
+
+.navbar-custom .navbar-nav .nav-esteregg {
+   color: rgb(0, 0, 0)
+} 

@@ -19,6 +19,13 @@
                         <h2 class="text-white">Nous Contacter :</h2>
                         <h4 class="text-white">N'hésitez pas à poser vos questions !</h4>
                     </div>
+                    <div class="info-cesi">
+                        <address class="text-secondary">
+                            16 rue Magellan, Bât. Alpha <br>
+                            Toulouse, Labège 31670<br>
+                            Tél. : 06.01.23.45.67
+                        </address>
+                    </div>
                 </div>
                 <div class="col-md-9">
                     <div class="contact-form">

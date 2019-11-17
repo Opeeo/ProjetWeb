@@ -35,6 +35,7 @@
                     <a class="dropdown-item" href="pastEvent.php">Evénement passés</a>
                 </div>
             </li>
+            <p class="nav-esteregg data-toggle="tooltip" data-placement="bottom" title="Point faible ? Trop fort.">o</p>
 
             <div style="margin-left: 50px"></div>
 

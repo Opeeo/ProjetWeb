@@ -7,10 +7,9 @@
   <body>
     <?php include("content/navbar.php") ?>
     <?php include("content/foot.php") ?>
-      <h1>Panier</h1>
 
       <div class="panier clearfix">
-        
+
         <div class="nom-colonne clearfix">
           <label class="produit-image">Image</label>
           <label class="produit-detail">Produit</label>
