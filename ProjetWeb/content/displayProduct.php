@@ -22,7 +22,7 @@
             
             
             <div style='padding: 0' class='card-body'>
-                <a class='button-link' href='targetArticle.php?id=$productId'>
+                <a href='targetArticle.php?id=". $productId ."' class='button-link'>
                     <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Voir le produit</button>
                 </a>
             </div>

@@ -91,7 +91,30 @@ app.get("/ajoutCommande/:userId/:jsonString/:prix", (req, res) => {
             console.log("Fetch users error: \n" + err)
             return
         }
-        res.send("1")
+        return
+    })
+
+    const emptyJson = "[]"
+    const queryString = "UPDATE utilisateurs SET panier = ?  WHERE id = ?"
+    getConnectionLocale().query(queryString, [emptyJson, userId], (err, rows) =>{
+
+        if(err){
+
+            console.log("Fetch users error: \n" + err)
+            return
+        }
+        return
+    })
+
+    const queryString = "SELECT id FROM commandes WHERE id_utilisateur = ?"
+    getConnectionLocale().query(queryString, [userId], (err, rows) =>{
+
+        if(err){
+
+            console.log("Fetch users error: \n" + err)
+            return
+        }
+        res.json(rows)
         return
     })
 })
