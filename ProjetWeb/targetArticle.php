@@ -72,7 +72,7 @@
             echo "
 
             <div class='row justify-content-center'>
-                <a class='button-link'>
+                <a class='button-link' href='content/ajoutPanier.php?id=". $article['id'] ."'>
                    <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Acheter</button>
                 </a>
             </div>
