@@ -13,6 +13,7 @@ html {
     height: 60px;   /* Hauteur du footer */
     line-height: 60px;  /* Centrage verticale */
     background-color: #000000;
+    z-index: 7;
   }
 
 /* * CSS du contenu de la page */
