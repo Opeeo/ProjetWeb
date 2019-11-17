@@ -11,6 +11,7 @@
         <!-- CSS slider -->
        <link href="assets/css/slider.css" rel="stylesheet">
         <link href="assets/css/navbar.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/futureEvent.css">
     </head>
     <body>
         <?php include("content/navbar.php") ?>
