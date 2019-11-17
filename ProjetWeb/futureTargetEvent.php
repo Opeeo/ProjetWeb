@@ -37,6 +37,10 @@
 
         $img = str_replace("*", "/", $event->image);
 
+        $name = str_replace("*", " ", $event->nom);
+
+        $desc = str_replace("*", " ", $event->description);
+
 
         echo "
      
@@ -44,11 +48,11 @@
         <div class='card' style='width: 55em;'>
             <img src='". $img ."' class='card-img-top'>
             <div class='card-body' style='height: 4em'>
-                <h5 class='card-title text-center'>". $event->nom ."</h5>
+                <h5 class='card-title text-center'>". $name ."</h5>
             </div>
             <div class='card-body'>
                 <h6 class='card-title'>Description de l'événement :</h6>
-                <p class='card-text'>". $event->description ."</p>
+                <p class='card-text'>". $desc ."</p>
             </div>
         </div>
      </div>

@@ -4,6 +4,8 @@ function displayPastEvent($nomEvent, $imageEvent, $date, $EventId) {
 
     $img = str_replace("*", "/", $imageEvent);
 
+    $name = str_replace("*", " ", $nomEvent);
+
     echo "
     
         <div class='card text-left' style='width: 20em; display: inline-block; margin: 20px'>
@@ -12,7 +14,7 @@ function displayPastEvent($nomEvent, $imageEvent, $date, $EventId) {
             
             <div class='card-body' style='height: 6em'>
             
-                <h5 class='card-title'>$nomEvent</h5>
+                <h5 class='card-title'>$name</h5>
             
             </div>
             

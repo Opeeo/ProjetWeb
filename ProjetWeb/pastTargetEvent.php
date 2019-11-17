@@ -37,6 +37,10 @@
 
     $img = str_replace("*", "/", $event->image);
 
+    $name = str_replace("*", " ", $event->nom);
+
+    $desc = str_replace("*", " ", $event->description);
+
 
     echo "
      
@@ -44,11 +48,11 @@
         <div class='card' style='width: 55em;'>
             <img src='" . $img . "' class='card-img-top'>
             <div class='card-body' style='height: 4em'>
-                <h5 class='card-title text-center'>" . $event->nom . "</h5>
+                <h5 class='card-title text-center'>" . $name . "</h5>
             </div>
             <div class='card-body'>
                 <h6 class='card-title'>Description de l'événement :</h6>
-                <p class='card-text'>" . $event->description . "</p>
+                <p class='card-text'>" . $desc . "</p>
             </div>
         </div>
      </div>
@@ -79,55 +83,55 @@
             <div class='card-body'>";
 
 
+            if (isset($event->photo)) {
+
+                for ($i = 0; $i < count($event->photo); $i++) {
+
+                    $photoUser = file_get_contents("http://localhost:3003/recupUsers/" . $event->photo[$i]->id_utilisateur);
+                    $json = json_decode($photoUser);
+
+                    $lien = str_replace("*", "/", $event->photo[$i]->lien);
 
 
-            for ($i = 0 ; $i < count($event->photo) ; $i++) {
-
-                $photoUser = file_get_contents("http://localhost:3003/recupUsers/" . $event->photo[$i]->id_utilisateur);
-                $json = json_decode($photoUser);
-
-                $lien = str_replace("*", "/", $event->photo[$i]->lien);
-
-
-                echo "
+                    echo "
                 <div class='card'>
                     <div class='card-body' style='height: 3.5em'>
-                        <h6 class='card-title'>" . $json[0]->prenom ." " . $json[0]->nom . "</h6>
+                        <h6 class='card-title'>" . $json[0]->prenom . " " . $json[0]->nom . "</h6>
                     </div>
                     <img class='card-img-top' src='" . $lien . "'>
                     <div class='card-body'>
                         
                 ";
 
-                if(isset($_SESSION['mail'])) {
-                    if($_SESSION['statut'] == 2) {
-                        echo "
+                    if (isset($_SESSION['mail'])) {
+                        if ($_SESSION['statut'] == 2) {
+                            echo "
                                 <a class='button-link m-1' style='width: 20em'>
                                     <button class='btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold custom-button' style='background-color: red'>Supprimer photo</button>
                                 </a>
                             </div>
                                 ";
+                        }
                     }
-                }
 
-                if (isset($event->photo[$i]->commentaire)) {
+                    if (isset($event->photo[$i]->commentaire)) {
 
-                    echo "<h6 class='card-title text-center'>Commentaire de la photo</h6>";
+                        echo "<h6 class='card-title text-center'>Commentaire de la photo</h6>";
 
-                    for ($j = 0; $j < count($event->photo[$i]->commentaire); $j++) {
+                        for ($j = 0; $j < count($event->photo[$i]->commentaire); $j++) {
 
-                        if(isset($event->photo[$i]->commentaire[$j])) {
+                            if (isset($event->photo[$i]->commentaire[$j])) {
 
-                            $photoComsUser = file_get_contents("http://localhost:3003/recupUsers/" . $event->photo[$i]->commentaire[$j]->id_utilisateur);
-                            $json2 = json_decode($photoComsUser);
+                                $photoComsUser = file_get_contents("http://localhost:3003/recupUsers/" . $event->photo[$i]->commentaire[$j]->id_utilisateur);
+                                $json2 = json_decode($photoComsUser);
 
-                            $comsParse1 = explode('T', $event->photo[$i]->commentaire[$j]->date);
-                            $comsParse2 = explode('-', $comsParse1[0]);
-                            $comsDate = $comsParse2[2] . "/" . $comsParse2[1] . "/" . $comsParse2[0];
+                                $comsParse1 = explode('T', $event->photo[$i]->commentaire[$j]->date);
+                                $comsParse2 = explode('-', $comsParse1[0]);
+                                $comsDate = $comsParse2[2] . "/" . $comsParse2[1] . "/" . $comsParse2[0];
 
-                            $comsContenu = str_replace("*", " ", $event->photo[$i]->commentaire[$j]->contenu);
+                                $comsContenu = str_replace("*", " ", $event->photo[$i]->commentaire[$j]->contenu);
 
-                            echo "
+                                echo "
                         
                         <div class='card'>
                             <div class='card-body'>
@@ -138,41 +142,43 @@
                         
                                 ";
 
-                            if (isset($_SESSION['mail'])) {
-                                if ($_SESSION['statut'] == 2) {
-                                    echo "
+                                if (isset($_SESSION['mail'])) {
+                                    if ($_SESSION['statut'] == 2) {
+                                        echo "
                                 <a class='button-link m-1' style='width: 20em'>
                                     <button class='btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold custom-button' style='background-color: red'>Supprimer commentaire</button>
                                 </a>
                             </div>
                             
                                 ";
+                                    }
                                 }
+
+                                echo "</div>";
+
                             }
 
-                            echo "</div>";
-
                         }
-
                     }
-                }
 
 
-                if (isset($_SESSION['mail'])) {
+                    if (isset($_SESSION['mail'])) {
 
-                    echo "
-                            <a href='ajoutCommentaire.php?eventid=" . $_GET['id'] . "&photoid=". $event->photo[$i]->id ."' class='button-link m-1'>
+                        echo "
+                            <a href='ajoutCommentaire.php?eventid=" . $_GET['id'] . "&photoid=" . $event->photo[$i]->id . "' class='button-link m-1'>
                                 <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Ajouter un commentaire</button>
                             </a>
                     ";
-                }
+                    }
 
 
-                echo "
+                    echo "
                     </div>
                     </div>
                     </div>
                 ";
+                }
+
             }
 
             if(isset($_SESSION['mail'])) {

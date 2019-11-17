@@ -21,11 +21,15 @@
 
             include "content/eventVerif.php";
 
+
+
             for ($i = 0 ; $i < count($eventP) ; $i++) {
 
                 displayPastEvent($eventP[$i]->nom, $eventP[$i]->image, $eventP[$i]->date, $eventP[$i]->id);
 
             }
+
+
 
             ?>
         </main>
