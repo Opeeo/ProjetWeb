@@ -66,7 +66,7 @@ app.get("/addEvent/:nom/:date/:desc/:prix/:url/:rec", (req, res) =>{
     const rec = req.params.rec
 
 
-    const queryString = "INSERT INTO photos(nom, date, description, image, recurrence, prix) VALUES (?, ?, ?, ?, ?, ?)"
+    const queryString = "INSERT INTO evenement(nom, date, description, image, recurrence, prix) VALUES (?, ?, ?, ?, ?, ?)"
 
     getConnectionLocale().query(queryString, [nom, date, desc, lien, rec, prix], (err,rows, fields) => {
        
@@ -77,7 +77,8 @@ app.get("/addEvent/:nom/:date/:desc/:prix/:url/:rec", (req, res) =>{
             console.log("Add error: \n" + err)
             return
         }
-        res.end()
+        res.send("Evenement ajouter")
+        return
     })
 
 
@@ -99,7 +100,8 @@ app.get("/addPhoto/:url/:idEvent/:idUser", (req, res) =>{
             console.log("Add error: \n" + err)
             return
         }
-        res.end()
+        res.send("Ajout de la photo")
+        return
     })
 
 })
@@ -118,6 +120,7 @@ app.get("/deletePhoto/:idPhoto", (req, res) =>{
             console.log("Delete error: \n" + err)
             return
         }
+        res.end("Suppression de la photo")
         return
     })
 
@@ -140,7 +143,8 @@ app.get("/addComs/:contenu/:idPhoto/:idUser/:date", (req, res) =>{
             console.log("Add error: \n" + err)
             return
         }
-        res.end()
+        res.send("commentaire envoyé")
+        return
     })
 
 })
@@ -159,6 +163,7 @@ app.get("/deleteComs/:idComs", (req, res) =>{
             console.log("Delete error: \n" + err)
             return
         }
+        res.send("Suppression du commentaire")
         return
     })
 
