@@ -56,6 +56,24 @@ app.get("/recupProduit", (req, res) =>{
     })
 })
 
+app.get("/recupParticipation/:idEvent", (req, res) => {
+
+    const idEvent = req.params.idEvent
+
+    const queryString = "SELECT id_utilisateur FROM participations WHERE id_evenement = ?"
+
+    getConnectionLocale().query(queryString, [idEvent], (err, rows) => {
+        if(err){
+            console.log("Fetch events error: \n" + err)
+            return
+        }
+        console.log("Fetching events....")
+        res.json(rows)
+        return
+    })
+
+})
+
 app.get("/addEvent/:nom/:date/:desc/:prix/:url/:rec", (req, res) =>{
 
     const lien = req.params.url

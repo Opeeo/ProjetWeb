@@ -4,6 +4,8 @@ function displayFutureEvent($nomEvent, $prixEvent, $imageEvent, $date, $EventId)
 
     $img = str_replace("*", "/", $imageEvent);
 
+    $name = str_replace("*", " ", $nomEvent);
+
     if ($prixEvent === 0) {
         $prixEvent = "Gratuit";
     } else {
@@ -18,7 +20,7 @@ function displayFutureEvent($nomEvent, $prixEvent, $imageEvent, $date, $EventId)
             
             <div class='card-body' style='height: 6em'>
             
-                <h5 class='card-title'>$nomEvent</h5>
+                <h5 class='card-title'>$name</h5>
             
             </div>
             

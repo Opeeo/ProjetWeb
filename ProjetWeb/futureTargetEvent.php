@@ -41,6 +41,12 @@
 
         $desc = str_replace("*", " ", $event->description);
 
+        if($event->prix == 0) {
+            $price = "Gratuit";
+        } else {
+            $price = $event->prix . " €";
+        }
+
 
         echo "
      
@@ -52,7 +58,21 @@
             </div>
             <div class='card-body'>
                 <h6 class='card-title'>Description de l'événement :</h6>
-                <p class='card-text'>". $desc ."</p>
+                <p class='card-text'>". $desc ."</p>";
+
+
+        if(isset($_SESSION['mail'])) {
+            if($_SESSION['statut'] == 3) {
+                echo "
+                <a class='button-link' href='content/dlInscritList.php?idEvent=" . $event->id . "'>
+                    <button class='btn btn-lg btn-info btn-block btn-login text-uppercase font-weight-bold custom-button m-3'  style='width: 20em'>Télecharger la liste des inscrits</button>
+                </a>
+                ";
+            }
+        }
+
+
+        echo "
             </div>
         </div>
      </div>
@@ -75,7 +95,7 @@
                     <h6 class='card-title text-center m-2'>Prix</h6>
                 </div>
                 <div class='card-body text-center'>
-                    ". $event->prix ." €
+                    ". $price ."
                 </div>
             </div>
         </div>
