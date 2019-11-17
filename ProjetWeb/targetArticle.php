@@ -16,12 +16,6 @@
 <main role="main" class="container">
     <?php
 
-        /*
-         * TODO: Faire le lien avec l'API en fonction de la variable $_GET['id']
-         *
-         *
-         */
-
         
         $jsonProd = file_get_contents("http://localhost:3003/recupProduit");
 
