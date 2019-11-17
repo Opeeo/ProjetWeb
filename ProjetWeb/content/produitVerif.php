@@ -1,9 +1,9 @@
 <?php
-  $_SESSION['panier'] = '[{"quantite": 3, "idProduit": 2}, {"quantite": 30, "idProduit": 1}]';
+    
     $produits = json_decode($_SESSION['panier']);
     echo '
     <script type="text/javascript">
-      panierJS = \'' . $_SESSION['panier'] . '\';
+      panierJS = JSON.parse(\'' . $_SESSION['panier'] . '\');
     </script>';
     foreach($produits as $produit) {
         $jsonProduit = file_get_contents("http://localhost:3003/recupProduitById/" . $produit->idProduit);

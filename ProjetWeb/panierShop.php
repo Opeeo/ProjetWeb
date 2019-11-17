@@ -16,7 +16,7 @@
       <?php if(!isset($_SESSION['mail'])) {
         header("Location: content/wrongLink.php");
         exit();
-      } elseif ($_SESSION['panier'] == "[{}]") {
+      } elseif ($_SESSION['panier'] == "[]") {
         echo '
             <h1>Panier</h1>
             <div class="panier clearfix">

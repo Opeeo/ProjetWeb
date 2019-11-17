@@ -1,7 +1,5 @@
 
 $(document).ready(function() {
-  
-  panierJS = JSON.parse(panierJS);
 
   /* Taxe & ratio de fade */
   var tauxTVA = 0.20;
@@ -94,6 +92,9 @@ $(document).ready(function() {
           url: "content/panierQuantite.php",
           data: {data : JSON.stringify(panierJS)}
         })
+        if(JSON.stringify(panierJS) == "[]"){
+          window.location.href = 'panierShop.php';
+        }
         break;
       }
     }
