@@ -1,9 +1,8 @@
 <?php
-    $_SESSION['panier'] = "[{\"id\":2,\"quantite\":2},{\"id\":1,\"quantite\":1}]";
     $produits = json_decode($_SESSION['panier']);
     foreach($produits as $produit) {
         
-        $jsonProduit = file_get_contents("http://localhost:3003/recupProduit/" . $produit[0]->id);
+        $jsonProduit = file_get_contents("http://localhost:3003/recupProduit/" . $produit->id);
         $infosProduit = json_decode($jsonProduit);
 
         echo '
@@ -17,7 +16,7 @@
         </div>
         <div class="produit-prix">' . $infosProduit[0]->prix . '</div>
           <div class="produit-quantite">
-            <input type="number" value="' . $produit[0]->quantite . '" min="1" max="' . $infosProduit[0]->quantite . '">
+            <input type="number" value="' . $produit->quantite . '" min="1" max="' . $infosProduit[0]->quantite . '">
           </div>
           <div class="produit-suppr">
             <button class="produit-suppression btn-danger btn-sm"><img src="assets/vendors/pictures/letter-x.png" alt="delete" height=15 width=15></button>
