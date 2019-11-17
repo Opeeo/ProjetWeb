@@ -58,7 +58,7 @@
                                         <!-- Check CGU acceptées ? -->
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="CGU" required>
-                                            <label class="custom-control-label" for="CGU"><strong><a class="text-dark" href="cgu.php">Conditions générales d'utilisation</a></strong></label>
+                                            <label class="custom-control-label" for="CGU"><strong><a class="text-dark" href="../ml.php">Mentions Légales</a></strong></label>
                                         </div>
 
                                         <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Inscription</button>
