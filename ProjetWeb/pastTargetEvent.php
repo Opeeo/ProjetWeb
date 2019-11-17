@@ -84,7 +84,7 @@
                 $photoUser = file_get_contents("http://localhost:3003/recupUsers/" . $event['photo'][$i]['id_utilisateur']);
                 $json = json_decode($photoUser);
 
-
+                $lien = str_replace("*", "/", $event['photo'][$i]['lien']);
 
 
                 echo "
@@ -92,7 +92,7 @@
                     <div class='card-body' style='height: 3.5em'>
                         <h6 class='card-title'>" . $json[0]->prenom ." " . $json[0]->nom . "</h6>
                     </div>
-                    <img class='card-img-top' src='" . $event['photo'][$i]['lien'] . "'>
+                    <img class='card-img-top' src='" . $lien . "'>
                     <div class='card-body'>
                         
                 ";
@@ -178,7 +178,7 @@
                 if ($response == "Trouvé !") {
 
                     echo "
-                            <a href='' class='button-link m-1'>
+                            <a href='ajoutImage.php?eventid=". $_GET['id'] ."' class='button-link m-1'>
                                 <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Ajouter une photo</button>
                             </a>
                     ";

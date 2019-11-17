@@ -9,7 +9,7 @@
 
             <!-- TODO: Action du formulaire à modifier -->
 
-            <form action="eventAdd.php" method="post">
+            <form action="content/scriptAjoutEvent.php" method="post">
 
                 <div class="form-inline text-center">
 
@@ -42,7 +42,7 @@
 
                 <div style="margin-bottom: 15px" class="form-check">
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="eventReccurence">
+                        <input type="checkbox" class="form-check-input" name="eventRecurrence">
                         Evénement reccurent
                     </label>
                 </div>

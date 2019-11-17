@@ -1,6 +1,6 @@
 <?php if(!isset($_SESSION)) 
     { 
-        session_start(); 
+        session_start();
     } ?>
 
 <!DOCTYPE html>
@@ -33,6 +33,17 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="futureEvent.php">Evénement à venir</a>
                     <a class="dropdown-item" href="pastEvent.php">Evénement passés</a>
+
+
+                    <?php
+                        if(isset($_SESSION['mail'])) {
+                            if($_SESSION['statut'] == 3) {
+                                echo "<div class=\"dropdown-divider\"></div><a class=\"dropdown-item\" href=\"eventAdd.php\">Ajouter événement</a>";
+                            }
+                        }
+                    ?>
+
+
                 </div>
             </li>
 
