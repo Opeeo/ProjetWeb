@@ -4,17 +4,17 @@ $(document).ready(function() {
     /* Taxe & ratio de fade */
     var tauxTVA = 0.20;
     var fadeTime = 300;
-     
+
     /* Assigne la fonction update ou delete */
-    $('.produit-quantite input').change( function() {
+    $('.produit-quantite input').on("change", function() {
       updateQuantite(this);
     });
-     
+
     $('.produit-suppr button').click( function() {
       suppresionProduit(this);
     });
-     
-     
+
+
     /* Recalcul le panier */
     function recalculPanier()
     {
@@ -73,9 +73,5 @@ $(document).ready(function() {
         recalculPanier();
       });
     }
-    
-    updateQuantite('.produit-quantite input');
-     
+    $('.produit-quantite input').trigger("change");
 });
-     
-    

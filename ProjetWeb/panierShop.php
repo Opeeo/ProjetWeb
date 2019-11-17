@@ -38,21 +38,20 @@
         
         include("content/produitVerif.php");
         
-        
         echo'
         <!-- Total -->
         <div class="totals">
           <div class="total-produits clearfix">
             <label>Sous-Total</label>
-            <div class="total-valeur" id="panier-sous-total">50.00</div>
+            <div class="total-valeur" id="panier-sous-total">0.00</div>
           </div>
           <div class="total-produits clearfix">
             <label>TVA (20%)</label>
-            <div class="total-valeur" id="panier-tva">10.00</div>
+            <div class="total-valeur" id="panier-tva">0.00</div>
           </div>
           <div class="total-produits clearfix total-produit-total">
             <label>Total</label>
-            <div class="total-valeur" id="panier-total">60.00</div>
+            <div class="total-valeur" id="panier-total">0.00</div>
           </div>
         </div>
         <button class="btn btn-success btn-lg btn-block">Paiement</button>'; }
