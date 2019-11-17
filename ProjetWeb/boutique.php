@@ -83,7 +83,7 @@
                 <div class="row justify-content-center" style="background-color: #aeeeff">
                     <?php
 
-                    $jsonProd = file_get_contents("http://localhost:3003/recupProduit");
+                    /*$jsonProd = file_get_contents("http://localhost:3003/recupProduit");
                     $resultProd = json_decode($jsonProd);
 
                     $jsonBest = file_get_contents();
@@ -153,12 +153,14 @@
                     $imgBest3 = str_replace("*", "/", $best3->img);
                     displayProduct($nameBest3, $best3->prix, $best3->quantite, $imgBest3, $best3->id);
 
-
+                    */
                     ?>
                 </div>
 
                 <div class="row justify-content-center">
                     <?php
+
+                    include "content/displayProduct.php";
 
                     $jsonProd = file_get_contents("http://localhost:3003/recupProduit");
 
