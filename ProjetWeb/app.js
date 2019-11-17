@@ -81,40 +81,38 @@ app.get("/ajoutCommande/:userId/:jsonString/:prix", (req, res) => {
     const jsonString = req.params.jsonString
     const prix = req.params.prix
     const date = new Date();
-
-    const queryString = "INSERT INTO commandes(id_utilisateur, contenu, prix, date) VALUES (?, ?, ?, ?)"
-
-    getConnectionLocale().query(queryString, [userId, jsonString, prix, date], (err, rows) =>{
-
-        if(err){
-
-            console.log("Fetch users error: \n" + err)
-            return
-        }
-        return
-    })
-
     const emptyJson = "[]"
-    const queryString = "UPDATE utilisateurs SET panier = ?  WHERE id = ?"
-    getConnectionLocale().query(queryString, [emptyJson, userId], (err, rows) =>{
+
+    const queryInsert = "INSERT INTO commandes(id_utilisateur, contenu, prix, date) VALUES (?, ?, ?, ?)"
+    const queryUpdate = "UPDATE utilisateurs SET panier = ?  WHERE id = ?"
+    const querySelect = "SELECT id FROM commandes WHERE id_utilisateur = ? ORDER BY id_utilisateur DESC LIMIT 0, 1"
+
+    getConnectionLocale().query(queryInsert, [userId, jsonString, prix, date], (err, rows1) =>{
 
         if(err){
 
             console.log("Fetch users error: \n" + err)
             return
         }
-        return
     })
 
-    const queryString = "SELECT id FROM commandes WHERE id_utilisateur = ?"
-    getConnectionLocale().query(queryString, [userId], (err, rows) =>{
+    getConnectionLocale().query(queryUpdate, [emptyJson, userId], (err, rows2) =>{
 
         if(err){
 
             console.log("Fetch users error: \n" + err)
             return
         }
-        res.json(rows)
+    })
+
+    getConnectionLocale().query(querySelect, [userId], (err, rows3) =>{
+
+        if(err){
+
+            console.log("Fetch users error: \n" + err)
+            return
+        }
+        res.send(rows3)
         return
     })
 })
@@ -255,7 +253,7 @@ app.get("/addComs/:contenu/:idPhoto/:idUser/:date", (req, res) =>{
     const idPhoto = req.params.idPhoto
     const idUser = req.params.idUser
     const date = req.params.date
-    const queryString = "INSERT INTO commentaires(id_photo, id_utilisateur, contenu, date) VALUES (?, ?, ?, ?)"
+    const queryString = "INSERT INTO commentaires(id_photo, id_utilisateur, contenu, date, cache)) VALUES (?, ?, ?, ?, 0)"
 
     getConnectionLocale().query(queryString, [idPhoto, idUser, contenu, date], (err,rows, fields) => {
        
