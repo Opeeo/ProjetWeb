@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <!-- CSS slider -->
        <link href="assets/css/slider.css" rel="stylesheet">
+        <link href="assets/css/navbar.css" rel="stylesheet">
     </head>
     <body>
         <?php include("content/navbar.php") ?>
