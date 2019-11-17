@@ -8,6 +8,10 @@
     foreach($produits as $produit) {
         $jsonProduit = file_get_contents("http://localhost:3003/recupProduitById/" . $produit->idProduit);
         $infosProduit = json_decode($jsonProduit);
+
+        $img = str_replace("*", "/", $infosProduit[0]->img);
+        $name = str_replace("*", " ", $infosProduit[0]->nom);
+
         if($infosProduit == "") {
          echo' <script type="text/javascript">
             window.location.href = \'content/error.php\';
@@ -17,10 +21,10 @@
         echo '
         <div class="produit clearfix" id="' . $produit->idProduit . '">
           <div class="produit-image">
-            <img src="' . $infosProduit[0]->img . '">
+            <img src="' . $img . '">
           </div>
           <div class="produit-detail">
-            <div class="produit-nom">' . $infosProduit[0]->nom . '</div>
+            <div class="produit-nom">' . $name . '</div>
             <p class="produit-desc">Desc</p>
           </div>
           <div class="produit-prix">' . $infosProduit[0]->prix . '</div>
