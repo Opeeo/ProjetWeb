@@ -75,6 +75,27 @@ app.get("/updatePanier/:userId/:jsonString", (req, res) => {
     })
 })
 
+app.get("/ajoutCommande/:userId/:jsonString/:prix", (req, res) => {
+    
+    const userId = req.params.userId
+    const jsonString = req.params.jsonString
+    const prix = req.params.prix
+    const date = new Date();
+
+    const queryString = "INSERT INTO commandes(id_utilisateur, contenu, prix, date) VALUES (?, ?, ?, ?)"
+
+    getConnectionLocale().query(queryString, [userId, jsonString, prix, date], (err, rows) =>{
+
+        if(err){
+
+            console.log("Fetch users error: \n" + err)
+            return
+        }
+        res.send("1")
+        return
+    })
+})
+
 app.get("/recupProduit", (req, res) =>{
 
     const queryString = "SELECT * FROM produits"
