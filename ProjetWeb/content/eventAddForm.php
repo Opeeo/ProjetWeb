@@ -53,11 +53,5 @@
         </div>
     </div>
 
-
-
-
-    <!-- TODO: var_dump pour code bouchoné (à enlever pour version finale) -->
-    <?php var_dump($_POST); ?>
-
 </div>
 
