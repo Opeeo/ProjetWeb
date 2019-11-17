@@ -32,7 +32,7 @@
 
                 for ($i = 0 ; $i < count($eventF) ; $i++) {
 
-                    displayFutureEvent($eventF[$i]['nom'], $eventF[$i]['prix'], $eventF[$i]['illust'], $parseDate, $eventF[$i]['id']);
+                    displayFutureEvent($eventF[$i]->nom, $eventF[$i]->prix, $eventF[$i]->image, $eventF[$i]->date, $eventF[$i]->id);
 
                 }
 

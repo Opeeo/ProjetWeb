@@ -30,23 +30,25 @@
 
     for ($i = 0 ; $i < count($eventP) ; $i++) {
 
-        if ($eventP[$i]['id'] == $_GET['id']) {
+        if ($eventP[$i]->id == $_GET['id']) {
             $event = $eventP[$i];
         }
     }
+
+    $img = str_replace("*", "/", $event->image);
 
 
     echo "
      
     <div class='row justify-content-center'>
         <div class='card' style='width: 55em;'>
-            <img src='" . $event['illust'] . "' class='card-img-top'>
+            <img src='" . $img . "' class='card-img-top'>
             <div class='card-body' style='height: 4em'>
-                <h5 class='card-title text-center'>" . $event['nom'] . "</h5>
+                <h5 class='card-title text-center'>" . $event->nom . "</h5>
             </div>
             <div class='card-body'>
                 <h6 class='card-title'>Description de l'événement :</h6>
-                <p class='card-text'>" . $event['description'] . "</p>
+                <p class='card-text'>" . $event->description . "</p>
             </div>
         </div>
      </div>
@@ -58,7 +60,7 @@
                     <h6 class='card-title text-center m-2'>Date</h6>
                 </div>
                 <div class='card-body text-center'>
-                    " . $event['date'] . "
+                    " . $event->date . "
                 </div>
             </div>
         </div>
@@ -79,12 +81,12 @@
 
 
 
-            for ($i = 0 ; $i < count($event['photo']) ; $i++) {
+            for ($i = 0 ; $i < count($event->photo) ; $i++) {
 
-                $photoUser = file_get_contents("http://localhost:3003/recupUsers/" . $event['photo'][$i]['id_utilisateur']);
+                $photoUser = file_get_contents("http://localhost:3003/recupUsers/" . $event->photo[$i]->id_utilisateur);
                 $json = json_decode($photoUser);
 
-                $lien = str_replace("*", "/", $event['photo'][$i]['lien']);
+                $lien = str_replace("*", "/", $event->photo[$i]->lien);
 
 
                 echo "
@@ -108,27 +110,29 @@
                     }
                 }
 
-                if (isset($event['photo'][$i]['commentaire'])) {
+                if (isset($event->photo[$i]->commentaire)) {
 
                     echo "<h6 class='card-title text-center'>Commentaire de la photo</h6>";
 
-                    for ($j = 0; $j < count($event['photo'][$i]['commentaire']); $j++) {
+                    for ($j = 0; $j < count($event->photo[$i]->commentaire); $j++) {
 
-                        if(isset($event['photo'][$i]['commentaire'][$j])) {
+                        if(isset($event->photo[$i]->commentaire[$j])) {
 
-                            $photoComsUser = file_get_contents("http://localhost:3003/recupUsers/" . $event['photo'][$i]['commentaire'][$j]['id_utilisateur']);
+                            $photoComsUser = file_get_contents("http://localhost:3003/recupUsers/" . $event->photo[$i]->commentaire[$j]->id_utilisateur);
                             $json2 = json_decode($photoComsUser);
 
-                            $comsParse1 = explode('T', $event['photo'][$i]['commentaire'][$j]['date']);
+                            $comsParse1 = explode('T', $event->photo[$i]->commentaire[$j]->date);
                             $comsParse2 = explode('-', $comsParse1[0]);
                             $comsDate = $comsParse2[2] . "/" . $comsParse2[1] . "/" . $comsParse2[0];
+
+                            $comsContenu = str_replace("*", " ", $event->photo[$i]->commentaire[$j]->contenu);
 
                             echo "
                         
                         <div class='card'>
                             <div class='card-body'>
                                 <h6 class='card-title'>" . $comsDate . " - " . $json2[0]->prenom . " " . $json2[0]->nom . "</h6>
-                                <p class=''>" . $event['photo'][$i]['commentaire'][$j]['contenu'] . "</p>
+                                <p class=''>" . $comsContenu . "</p>
                             </div>
                         
                         
@@ -157,7 +161,7 @@
                 if (isset($_SESSION['mail'])) {
 
                     echo "
-                            <a href='ajoutCommentaire.php?eventid=" . $_GET['id'] . "&photoid=". $event['photo'][$i]['id'] ."' class='button-link m-1'>
+                            <a href='ajoutCommentaire.php?eventid=" . $_GET['id'] . "&photoid=". $event->photo[$i]->id ."' class='button-link m-1'>
                                 <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Ajouter un commentaire</button>
                             </a>
                     ";

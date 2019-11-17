@@ -30,23 +30,25 @@
 
         for ($i = 0 ; $i < count($eventF) ; $i++) {
 
-            if ($eventF[$i]['id'] == $_GET['id']) {
+            if ($eventF[$i]->id == $_GET['id']) {
                 $event = $eventF[$i];
             }
         }
+
+        $img = str_replace("*", "/", $event->image);
 
 
         echo "
      
     <div class='row justify-content-center'>
         <div class='card' style='width: 55em;'>
-            <img src='". $event['illust'] ."' class='card-img-top'>
+            <img src='". $img ."' class='card-img-top'>
             <div class='card-body' style='height: 4em'>
-                <h5 class='card-title text-center'>". $event['nom'] ."</h5>
+                <h5 class='card-title text-center'>". $event->nom ."</h5>
             </div>
             <div class='card-body'>
                 <h6 class='card-title'>Description de l'événement :</h6>
-                <p class='card-text'>". $event['description'] ."</p>
+                <p class='card-text'>". $event->description ."</p>
             </div>
         </div>
      </div>
@@ -58,7 +60,7 @@
                     <h6 class='card-title text-center m-2'>Date</h6>
                 </div>
                 <div class='card-body text-center'>
-                    ". $event['date'] ."
+                    ". $event->date ."
                 </div>
             </div>
         </div>
@@ -69,7 +71,7 @@
                     <h6 class='card-title text-center m-2'>Prix</h6>
                 </div>
                 <div class='card-body text-center'>
-                    ". $event['prix'] ." €
+                    ". $event->prix ." €
                 </div>
             </div>
         </div>
@@ -78,7 +80,7 @@
      if(isset($_SESSION['mail'])){
 
 
-        $recupInscription = file_get_contents("http://localhost:3003/isUserInEvent/" . $_SESSION['id'] . "/" . $event['id']);
+        $recupInscription = file_get_contents("http://localhost:3003/isUserInEvent/" . $_SESSION['id'] . "/" . $event->id);
      
     
         if($recupInscription != ""){
@@ -86,7 +88,7 @@
              echo "
 
          <div class='row justify-content-center'>
-             <a class='button-link' href='content/desinscripEvent?idEvent=" . $event['id'] . "'>
+             <a class='button-link' href='content/desinscripEvent?idEvent=" . $event->id . "'>
                 <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Se désinscrire</button>
              </a>
          </div>
@@ -98,7 +100,7 @@
             echo "
 
             <div class='row justify-content-center'>
-                <a class='button-link' href='content/inscripEvent?idEvent=" . $event['id'] . "'>
+                <a class='button-link' href='content/inscripEvent?idEvent=" . $event->id . "'>
                    <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>S'inscrire</button>
                 </a>
             </div>

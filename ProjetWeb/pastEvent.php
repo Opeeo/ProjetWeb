@@ -23,7 +23,7 @@
 
             for ($i = 0 ; $i < count($eventP) ; $i++) {
 
-                displayPastEvent($eventP[$i]['nom'], $eventP[$i]['illust'], $eventP[$i]['date'], $eventP[$i]['id']);
+                displayPastEvent($eventP[$i]->nom, $eventP[$i]->image, $eventP[$i]->date, $eventP[$i]->id);
 
             }
 
