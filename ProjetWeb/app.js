@@ -57,10 +57,28 @@ app.get("/recupProduitById/:id", (req, res) =>{
     })
 })
 
+app.get("/updatePanier/:userId/:jsonString", (req, res) => {
+    
+    const userId = req.params.userId
+    const jsonString = req.params.jsonString
+    const queryString = "UPDATE utilisateurs SET panier = ? WHERE id = ?"
+
+    getConnectionLocale().query(queryString, [jsonString, userId], (err, rows) =>{
+
+        if(err){
+
+            console.log("Fetch users error: \n" + err)
+            return
+        }
+        res.send("1")
+        return
+    })
+})
+
 app.get("/recupProduit", (req, res) =>{
 
     const queryString = "SELECT * FROM produits"
-    getConnectionLocale().query(queryString, (err, rows) =>{
+    getConnectionLocale().query(queryString, (err, rows) => {
 
         if(err){
 
