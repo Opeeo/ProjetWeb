@@ -52,7 +52,7 @@ app.get("/recupProduit", (req, res) =>{
         }
 
         res.json(rows)
-
+        return
     })
 })
 
