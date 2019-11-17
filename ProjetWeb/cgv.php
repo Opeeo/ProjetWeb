@@ -117,7 +117,7 @@
                             <div class="custom-scrollbar-css p-2 font-italic text-justify">
                                 Nos produits sont proposés tant qu'ils sont visibles sur le site <a href="boutique.php">www.bde-cesi-toulouse.com/boutique</a> et dans la limite des stocks disponibles. Pour les produits non stockés, nos offres sont valables sous réserve de disponibilité chez nos fournisseurs.<br>
                                 En cas d'indisponibilité de produit après passation de votre commande, nous vous en informerons par mail. Votre commande sera automatiquement annulée et aucun débit bancaire ne sera effectué.<br>  
-                                En outre, le site Internet <a href="www.bde-cesi-toulouse.com">www.bde-cesi-toulouse.com</a> n'a pas vocation à vendre ses produits en quantités importantes. Par conséquent la société <b>BDE Cesi Toulouse</b> se réserve le droit de refuser les commandes de  articles identiques.<br> 
+                                En outre, le site Internet <a href="index.php">www.bde-cesi-toulouse.com</a> n'a pas vocation à vendre ses produits en quantités importantes. Par conséquent la société <b>BDE Cesi Toulouse</b> se réserve le droit de refuser les commandes de  articles identiques.<br> 
                             </div>
                         </div>
                     </div>
