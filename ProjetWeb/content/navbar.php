@@ -23,9 +23,41 @@
             <li class="nav-item">
                 <a class="nav-link" href="./index.php">Accueil</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./boutique.php">Boutique</a>
-            </li>
+            <?php
+
+            if(isset($_SESSION['mail'])) {
+                if($_SESSION['statut'] == 3) {
+                    echo "
+                    
+                    <li class=\"nav-item dropdown\">
+                        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                            Boutique
+                        </a>
+                        
+                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                            <a class=\"dropdown-item\" href=\"boutique.php\">Accéder à la boutique</a>
+                            <div class=\"dropdown-divider\"></div>
+                            <a class=\"dropdown-item\" href=\"productAdd.php\">Ajouter un produit</a>
+                        </div>
+                    </li>
+                    
+                    ";
+                }else {
+                    echo "
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"./boutique.php\">Boutique</a>
+                    </li>
+                    ";
+                }
+            } else {
+                echo "
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"./boutique.php\">Boutique</a>
+                </li>
+                ";
+            }
+
+            ?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Evénement

@@ -74,6 +74,32 @@ app.get("/recupParticipation/:idEvent", (req, res) => {
 
 })
 
+app.get("/addProduct/:nom/:prix/:quant/:url", (req, res) =>{
+
+    const lien = req.params.url
+    const nom = req.params.nom
+    const quant = req.params.quant
+    const prix = req.params.prix
+
+
+    const queryString = "INSERT INTO produits(nom, prix, quantite, image) VALUES (?, ?, ?, ?)"
+
+    getConnectionLocale().query(queryString, [nom, prix, quant, lien], (err,rows, fields) => {
+       
+        console.log("Adding product...")
+
+        if(err){
+
+            console.log("Add error: \n" + err)
+            return
+        }
+        res.send("Produit ajouter")
+        return
+    })
+
+
+})
+
 app.get("/addEvent/:nom/:date/:desc/:prix/:url/:rec", (req, res) =>{
 
     const lien = req.params.url

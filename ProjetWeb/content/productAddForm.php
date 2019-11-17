@@ -9,20 +9,20 @@
 
             <!-- TODO: Action du formulaire à modifier -->
 
-            <form action="productAdd.php" method="post">
+            <form action="content/scriptAjoutProduit.php" method="post">
                 <div class="form-label-group">
                     <input type="text" id="inputName" class="form-control" name="productName" placeholder="Product name" required autofocus>
                     <label for="inputName">Nom du produit</label>
                 </div>
 
                 <div class="form-label-group">
-                    <textarea type="text" class="form-control" id="inputDesc" name="productDesc" rows="5" placeholder="Description" required></textarea>
-                    <label for="inputDesc">Description produit</label>
+                    <input type="number" id="inputPrice" class="form-control" name="productPrice" placeholder="Price" required>
+                    <label for="inputPrice">Prix du produit (en €)</label>
                 </div>
 
                 <div class="form-label-group">
-                    <input type="number" id="inputPrice" class="form-control" name="productPrice" placeholder="Price" required>
-                    <label for="inputPrice">Prix du produit (en €)</label>
+                    <input type="number" id="inputQuantity" class="form-control" name="productQuantity" placeholder="Quantity" required>
+                    <label for="inputQuantity">Quantité disponible</label>
                 </div>
 
                 <div class="form-label-group">
@@ -34,10 +34,6 @@
             </form>
         </div>
     </div>
-
-
-    <!-- TODO: var_dump pour code bouchoné (à enlever pour version finale) -->
-    <?php var_dump($_POST); ?>
 
 </div>
 
