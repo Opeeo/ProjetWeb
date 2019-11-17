@@ -17,6 +17,22 @@
         <?php include("content/navbar.php") ?>
 
         <main role="main" class="container text-center">
+
+            <div class="row justify-content-center">
+
+                <?php
+                if(isset($_SESSION['mail'])) {
+                    if($_SESSION['statut'] == 2 || $_SESSION['statut'] == 3) {
+                        echo "
+                            <a class='button-link' href='content/dlPhotosEvents.php'>
+                                <button class='btn btn-lg btn-info btn-block btn-login text-uppercase font-weight-bold custom-button m-3'  style='width: 20em'>Télecharger toutes les photos des événements</button>
+                            </a>
+                        ";
+                    }
+                }
+                ?>
+
+            </div>
             <?php
 
             include "content/eventVerif.php";
