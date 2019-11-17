@@ -2,8 +2,13 @@
     $produits = json_decode($_SESSION['panier']);
     foreach($produits as $produit) {
         
-        $jsonProduit = file_get_contents("http://localhost:3003/recupProduit/" . $produit->id);
+        $jsonProduit = file_get_contents("http://localhost:3003/recupProduitById/" . $produit->id);
         $infosProduit = json_decode($jsonProduit);
+        if($infosProduit == "") {
+         echo' <script type="text/javascript">
+            window.location.href = \'content/error.php\';
+          </script>';
+        } else {
 
         echo '
         <div class="produit clearfix">
@@ -22,6 +27,6 @@
             <button class="produit-suppression btn-danger btn-sm"><img src="assets/vendors/pictures/letter-x.png" alt="delete" height=15 width=15></button>
         </div>
         <div class="produit-ligne-prix">' . $infosProduit[0]->prix . '</div>
-      </div>';
+      </div>';}
             
 } ?>

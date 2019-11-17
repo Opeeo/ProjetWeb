@@ -5,7 +5,6 @@ $(document).ready(function() {
     var tauxTVA = 0.20;
     var fadeTime = 300;
      
-     
     /* Assigne la fonction update ou delete */
     $('.produit-quantite input').change( function() {
       updateQuantite(this);
@@ -74,6 +73,8 @@ $(document).ready(function() {
         recalculPanier();
       });
     }
+    
+    updateQuantite('.produit-quantite input');
      
 });
      
