@@ -20,15 +20,15 @@
 
         <div class="row add-container">
             <div class="col-md-10 col-lg-9 mx-auto">
-                <h3 class="login-heading mb-4">Ajouter un Commentaire :</h3>
+                <h3 class="login-heading mb-4">Ajouter une image :</h3>
 
                 <!-- TODO: Action du formulaire à modifier -->
 
-                <form action="content/scriptAjoutCommentaire.php?
+                <form action="content/scriptAjoutImage.php?
 
                 <?php
 
-                echo "eventid=" . $_GET['eventid'] . "&photoid=" . $_GET['photoid'];
+                echo "eventid=" . $_GET['eventid'];
 
 
                 ?>
@@ -39,10 +39,10 @@
                 " method="post">
 
                     <div class="form-label-group">
-                        <textarea type="text" class="form-control" id="inputComs" name="contenu" rows="9" placeholder="Commentaire" required></textarea>
+                        <input type="url" class="form-control" id="inputImage" name="lien" placeholder="Lien de l'image" required />
                     </div>
 
-                    <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Envoyer le commentaire</button>
+                    <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Envoyer la photo</button>
                 </form>
             </div>
         </div>

@@ -24,6 +24,8 @@
 
     include "content/eventVerif.php";
 
+
+
     $event = null;
 
     for ($i = 0 ; $i < count($eventP) ; $i++) {
@@ -32,6 +34,7 @@
             $event = $eventP[$i];
         }
     }
+
 
     echo "
      
@@ -81,7 +84,7 @@
                 $photoUser = file_get_contents("http://localhost:3003/recupUsers/" . $event['photo'][$i]['id_utilisateur']);
                 $json = json_decode($photoUser);
 
-
+                $lien = str_replace("*", "/", $event['photo'][$i]['lien']);
 
 
                 echo "
@@ -89,7 +92,7 @@
                     <div class='card-body' style='height: 3.5em'>
                         <h6 class='card-title'>" . $json[0]->prenom ." " . $json[0]->nom . "</h6>
                     </div>
-                    <img class='card-img-top' src='" . $event['photo'][$i]['lien'] . "'>
+                    <img class='card-img-top' src='" . $lien . "'>
                     <div class='card-body'>
                         
                 ";
@@ -111,14 +114,16 @@
 
                     for ($j = 0; $j < count($event['photo'][$i]['commentaire']); $j++) {
 
-                        $photoComsUser = file_get_contents("http://localhost:3003/recupUsers/" . $event['photo'][$i]['commentaire'][$j]['id_utilisateur']);
-                        $json2 = json_decode($photoComsUser);
+                        if(isset($event['photo'][$i]['commentaire'][$j])) {
 
-                        $comsParse1 = explode('T', $event['photo'][$i]['commentaire'][$j]['date']);
-                        $comsParse2 = explode('-', $comsParse1[0]);
-                        $comsDate = $comsParse2[2] . "/" . $comsParse2[1] . "/" . $comsParse2[0];
+                            $photoComsUser = file_get_contents("http://localhost:3003/recupUsers/" . $event['photo'][$i]['commentaire'][$j]['id_utilisateur']);
+                            $json2 = json_decode($photoComsUser);
 
-                        echo "
+                            $comsParse1 = explode('T', $event['photo'][$i]['commentaire'][$j]['date']);
+                            $comsParse2 = explode('-', $comsParse1[0]);
+                            $comsDate = $comsParse2[2] . "/" . $comsParse2[1] . "/" . $comsParse2[0];
+
+                            echo "
                         
                         <div class='card'>
                             <div class='card-body'>
@@ -127,17 +132,22 @@
                             </div>
                         
                         
-                    ";
+                                ";
 
-                        if(isset($_SESSION['mail'])) {
-                            if($_SESSION['statut'] == 2) {
-                                echo "
+                            if (isset($_SESSION['mail'])) {
+                                if ($_SESSION['statut'] == 2) {
+                                    echo "
                                 <a class='button-link m-1' style='width: 20em'>
                                     <button class='btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold custom-button' style='background-color: red'>Supprimer commentaire</button>
                                 </a>
                             </div>
+                            
                                 ";
+                                }
                             }
+
+                            echo "</div>";
+
                         }
 
                     }
@@ -157,16 +167,25 @@
                 echo "
                     </div>
                     </div>
+                    </div>
                 ";
             }
 
-            //if(isset())
+            if(isset($_SESSION['mail'])) {
 
-            echo "
-                </div>
-                
-                
-                ";
+                $response = file_get_contents("http://localhost:3003/isUserInEvent/" . $_SESSION['id'] ."/" . $_GET['id']);
+
+                if ($response == "Trouvé !") {
+
+                    echo "
+                            <a href='ajoutImage.php?eventid=". $_GET['id'] ."' class='button-link m-1'>
+                                <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Ajouter une photo</button>
+                            </a>
+                    ";
+
+                }
+
+            }
 
 
             echo "
