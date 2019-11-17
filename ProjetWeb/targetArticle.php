@@ -43,14 +43,18 @@
             }
         }
 
+        $img = str_replace("*", "/", $article['img']);
+
+        $name = str_replace("*", " ", $article['nom']);
+
 
         echo "
      
     <div class='row justify-content-center'>
         <div class='card' style='width: 55em;'>
-            <img src='". $article['img'] ."' class='card-img-top'>
+            <img src='". $img ."' class='card-img-top'>
             <div class='card-body' style='height: 4em'>
-                <h5 class='card-title text-center'>". $article['nom'] ."</h5>
+                <h5 class='card-title text-center'>". $name ."</h5>
             </div>
          
         <div class='m-3'>
@@ -77,7 +81,7 @@
                 </a>
             </div>
                
-               "; 
+               ";
 
 
         
