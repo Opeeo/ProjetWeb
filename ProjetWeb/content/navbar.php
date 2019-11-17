@@ -61,9 +61,9 @@
                 </a>
                 <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
                     <a class=\"dropdown-item\" href=\"#\">Mon profil</a>
-                    <a class=\"dropdown-item\" href=\"#\">Mon panier</a>
+                    <a class=\"dropdown-item\" href=\"panierShop.php\">Mon panier</a>
                     <div class=\"dropdown-divider\"></div>
-                    <a class=\"dropdown-item\" href=\"content/deconnexion\">Se déconnecter</a>
+                    <a class=\"dropdown-item\" href=\"content/deconnexion.php\">Se déconnecter</a>
                 </div>
             </div>
                     
