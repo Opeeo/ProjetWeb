@@ -4,9 +4,9 @@
 
         echo "
         
-        <div class='card text-left' style='width: 24em; display: inline-block; margin: 20px'>
+        <div class='card text-left' style='width: 20em; display: inline-block; margin: 20px'>
             
-            <img src='$productImage' style='width: 24em; height: 13.5em'>
+            <img src='$productImage' style='width: 20em; height: 11.25em'>
             
             <div class='card-body' style='height: 6em'>
             

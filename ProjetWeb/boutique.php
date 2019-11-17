@@ -37,19 +37,19 @@
                                         <div class="modal-body">
                                             <form>
 
-                                                <!-- Slider min max Prix-->
+                                                <!-- Slider min max Prix
                                                 <div id="rangeBox">
-                                                    <!-- Partie gauche puis droite du slider -->    
+
                                                     <div id="sliderBox">
                                                         <input type="range" id="slider0to50" class="custom-range" step="1" min="0" max="50">
                                                         <input type="range" id="slider51to100" class="custom-range" step="1" min="50" max="100">
                                                     </div>
-                                                    <!-- Box value min et max du slider -->
+
                                                     <div id="inputRange">
                                                         <input type="number" step="1" min="0" max="50" placeholder="Min €" id="min" >
                                                         <input type="number" step="1" min="51" max="100" placeholder="Max €" id="max">
                                                     </div>
-                                                </div>
+                                                </div> -->
 
                                                 <!-- Checkboxs des catégories -->
                                                 <div class="custom-control custom-checkbox">
@@ -80,10 +80,85 @@
                         </div>                       
                     </div>
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center" style="background-color: #aeeeff">
                     <?php
 
+                    $jsonProd = file_get_contents("http://localhost:3003/recupProduit");
+                    $resultProd = json_decode($jsonProd);
+
+                    $jsonBest = file_get_contents();
+                    $resultBest = json_decode($jsonBest);
+
+                    if(!empty($resultBest)){
+
+                        for($i = 0; $i < count($resultProd); $i++) {
+
+                            for($j = 0; $j < count($resultBest); $j++) {
+
+                                $resultProd[$i]->best = 0;
+
+                                if($resultProd[$i]->id == $resultBest[$j]->id) {
+                                    $resultProd[$i] += $resultBest[$j]->quantite;
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    $best1 = null;
+
+                    for ($i = 0 ; $i < count($resultProd) ; $i++) {
+                        if($best1 == null){
+                            $best1 = $resultProd[$i];
+                        } elseif($resultProd[$i]->best > $best1){
+                            $best1 = $resultProd[$i];
+                        }
+                    }
+
+                    $best2 = null;
+                    for ($i = 0 ; $i < count($resultProd) ; $i++) {
+                        if($resultProd[$i] != $best1) {
+                            if ($best2 == null) {
+                                $best2 = $resultProd[$i];
+                            } elseif ($resultProd[$i]->best > $best2) {
+                                $best2 = $resultProd[$i];
+                            }
+                        }
+                    }
+
+                    $best3 = null;
+                    for ($i = 0 ; $i < count($resultProd) ; $i++) {
+                        if($resultProd[$i] != $best1 || $resultProd[$i] != $best2) {
+                            if ($best3 == null) {
+                                $best3 = $resultProd[$i];
+                            } elseif ($resultProd[$i]->best > $best3) {
+                                $best3 = $resultProd[$i];
+                            }
+                        }
+                    }
+
                     include "content/displayProduct.php";
+
+                    $nameBest1 = str_replace("*", " ", $best1->nom);
+                    $imgBest1 = str_replace("*", "/", $best1->img);
+                    displayProduct($nameBest1, $best1->prix, $best1->quantite, $imgBest1, $best1->id);
+
+                    $nameBest2 = str_replace("*", " ", $best2->nom);
+                    $imgBest2 = str_replace("*", "/", $best2->img);
+                    displayProduct($nameBest2, $best2->prix, $best2->quantite, $imgBest2, $best2->id);
+
+                    $nameBest3 = str_replace("*", " ", $best3->nom);
+                    $imgBest3 = str_replace("*", "/", $best3->img);
+                    displayProduct($nameBest3, $best3->prix, $best3->quantite, $imgBest3, $best3->id);
+
+
+                    ?>
+                </div>
+
+                <div class="row justify-content-center">
+                    <?php
 
                     $jsonProd = file_get_contents("http://localhost:3003/recupProduit");
 
