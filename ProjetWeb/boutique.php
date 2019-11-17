@@ -37,7 +37,11 @@
 
                                     for($i = 0 ; $i < count($resultProd) ;  $i++){
 
-                                        displayProduct($resultProd[$i]->nom,$resultProd[$i]->prix,$resultProd[$i]->quantite,$resultProd[$i]->img,$resultProd[$i]->id);
+                                        $name = str_replace("*", " ", $resultProd[$i]->nom);
+
+                                        $img = str_replace("*", "/", $resultProd[$i]->img);
+
+                                        displayProduct($name,$resultProd[$i]->prix,$resultProd[$i]->quantite,$img,$resultProd[$i]->id);
                                     }
 
                                 }

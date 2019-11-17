@@ -82,7 +82,7 @@ app.get("/addProduct/:nom/:prix/:quant/:url", (req, res) =>{
     const prix = req.params.prix
 
 
-    const queryString = "INSERT INTO produits(nom, prix, quantite, image) VALUES (?, ?, ?, ?)"
+    const queryString = "INSERT INTO produits(nom, prix, quantite, img) VALUES (?, ?, ?, ?)"
 
     getConnectionLocale().query(queryString, [nom, prix, quant, lien], (err,rows, fields) => {
        
