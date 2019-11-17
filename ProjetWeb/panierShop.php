@@ -4,13 +4,15 @@
 
 <html lang="fr">
   <head>
+  <script type="text/javascript">
+      panierJS = new Array();
+  </script>
       <?php include("content/head.php") ?>
       <link rel="stylesheet" href="assets/css/panierShop.css">
   </head>
   <body>
     <?php include("content/navbar.php") ?>
     <?php include("content/foot.php") ?>
-        
       <?php if(!isset($_SESSION['mail'])) {
         header("Location: content/wrongLink.php");
         exit();
