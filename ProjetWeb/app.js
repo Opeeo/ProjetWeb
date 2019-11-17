@@ -440,7 +440,7 @@ app.get("/inscription/:email/:nom/:prenom/:mdp", (req ,res) => {
 
         if(rows == ""){  
             console.log("Working ...")
-            getConnectionLocale().query(queryStringAddL, [nom, prenom, email, mdp, "Toulouse", "[{}]"], (err, rows, fields) => {
+            getConnectionLocale().query(queryStringAddL, [nom, prenom, email, mdp, "Toulouse", "[]"], (err, rows, fields) => {
                 if(err){
                     console.log("Insert user error : \n" + err)
                     
