@@ -40,6 +40,23 @@ function getConnectionCommune() {
 
 }
 
+app.get("/recupProduitById/:id", (req, res) =>{
+
+    const id = req.params.id
+    const queryString = "SELECT * FROM produits WHERE id = ?"
+    getConnectionLocale().query(queryString, [id], (err, rows) =>{
+    
+        if(err){
+
+            console.log("Fetch products error: \n" + err)
+            return
+        }
+
+        res.json(rows)
+        return
+    })
+})
+
 app.get("/recupProduit", (req, res) =>{
 
     const queryString = "SELECT * FROM produits"
