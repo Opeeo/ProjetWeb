@@ -101,7 +101,7 @@ app.get("/ajoutCommande/:userId/:jsonString/:prix", (req, res) => {
 
     const queryInsert = "INSERT INTO commandes(id_utilisateur, contenu, prix, date) VALUES (?, ?, ?, ?)"
     const queryUpdate = "UPDATE utilisateurs SET panier = ?  WHERE id = ?"
-    const querySelect = "SELECT id FROM commandes WHERE id_utilisateur = ? ORDER BY id_utilisateur DESC LIMIT 0, 1"
+    const querySelect = "SELECT id FROM commandes WHERE id_utilisateur = ? ORDER BY id DESC LIMIT 0, 1"
 
     getConnectionLocale().query(queryInsert, [userId, jsonString, prix, date], (err, rows1) =>{
 
