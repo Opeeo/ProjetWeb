@@ -77,14 +77,19 @@
                         </div>                       
                     </div>
                 </div>
+                <div class="row justify-content-center m-3">
+                    <h5 class="text-center">Les produits les plus vendus</h5>
+                </div>
                 <div class="row justify-content-center" style="background-color: #aeeeff">
                     <?php
 
-                    /*$jsonProd = file_get_contents("http://localhost:3003/recupProduit");
+                    $jsonProd = file_get_contents("http://localhost:3003/recupProduit");
                     $resultProd = json_decode($jsonProd);
 
-                    $jsonBest = file_get_contents();
+                    $jsonBest = file_get_contents("http://localhost:3003/recupCommandes");
                     $resultBest = json_decode($jsonBest);
+
+                    //echo var_dump(json_decode($resultBest[0]->contenu));
 
                     if(!empty($resultBest)){
 
@@ -94,8 +99,16 @@
 
                                 $resultProd[$i]->best = 0;
 
-                                if($resultProd[$i]->id == $resultBest[$j]->id) {
-                                    $resultProd[$i] += $resultBest[$j]->quantite;
+                                $jsonBest = json_decode($resultBest[$j]->contenu);
+
+                                for($k = 0 ; $k < count($jsonBest) ; $k++) {
+
+                                    if($resultProd[$i]->id == $jsonBest[$k]->idProduit) {
+
+                                        $resultProd[$i]->best = $resultProd[$i]->best + $jsonBest[$k]->quantite;
+
+                                    }
+
                                 }
 
                             }
@@ -104,60 +117,65 @@
 
                     }
 
-                    $best1 = null;
+                    //echo var_dump($resultProd[5]);
+
+                    $best1 = 0;
 
                     for ($i = 0 ; $i < count($resultProd) ; $i++) {
                         if($best1 == null){
                             $best1 = $resultProd[$i];
-                        } elseif($resultProd[$i]->best > $best1){
+                        } elseif($resultProd[$i]->best > $best1->best){
                             $best1 = $resultProd[$i];
                         }
                     }
 
-                    $best2 = null;
+                    $best2 = 0;
                     for ($i = 0 ; $i < count($resultProd) ; $i++) {
                         if($resultProd[$i] != $best1) {
                             if ($best2 == null) {
                                 $best2 = $resultProd[$i];
-                            } elseif ($resultProd[$i]->best > $best2) {
+                            } elseif ($resultProd[$i]->best > $best2->best) {
                                 $best2 = $resultProd[$i];
                             }
                         }
                     }
 
-                    $best3 = null;
+                    $best3 = 0;
                     for ($i = 0 ; $i < count($resultProd) ; $i++) {
-                        if($resultProd[$i] != $best1 || $resultProd[$i] != $best2) {
+                        if($resultProd[$i] != $best1 && $resultProd[$i] != $best2) {
                             if ($best3 == null) {
                                 $best3 = $resultProd[$i];
-                            } elseif ($resultProd[$i]->best > $best3) {
+                            } elseif ($resultProd[$i]->best > $best3->best) {
                                 $best3 = $resultProd[$i];
                             }
                         }
                     }
 
+
                     include "content/displayProduct.php";
 
-                    $nameBest1 = str_replace("*", " ", $best1->nom);
-                    $imgBest1 = str_replace("*", "/", $best1->img);
-                    displayProduct($nameBest1, $best1->prix, $best1->quantite, $imgBest1, $best1->id);
+                    if(isset($_GET['index'])) {
 
-                    $nameBest2 = str_replace("*", " ", $best2->nom);
-                    $imgBest2 = str_replace("*", "/", $best2->img);
-                    displayProduct($nameBest2, $best2->prix, $best2->quantite, $imgBest2, $best2->id);
+                        $nameBest1 = str_replace("*", " ", $best1->nom);
+                        $imgBest1 = str_replace("*", "/", $best1->img);
+                        displayProduct($nameBest1, $best1->prix, $best1->quantite, $imgBest1, $best1->id);
 
-                    $nameBest3 = str_replace("*", " ", $best3->nom);
-                    $imgBest3 = str_replace("*", "/", $best3->img);
-                    displayProduct($nameBest3, $best3->prix, $best3->quantite, $imgBest3, $best3->id);
+                        $nameBest2 = str_replace("*", " ", $best2->nom);
+                        $imgBest2 = str_replace("*", "/", $best2->img);
+                        displayProduct($nameBest2, $best2->prix, $best2->quantite, $imgBest2, $best2->id);
 
-                    */
+                        $nameBest3 = str_replace("*", " ", $best3->nom);
+                        $imgBest3 = str_replace("*", "/", $best3->img);
+                        displayProduct($nameBest3, $best3->prix, $best3->quantite, $imgBest3, $best3->id);
+
+                    }
+
+
                     ?>
                 </div>
 
                 <div class="row justify-content-center">
                     <?php
-
-                    include "content/displayProduct.php";
 
                     $jsonProd = file_get_contents("http://localhost:3003/recupProduit");
 
