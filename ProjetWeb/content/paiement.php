@@ -27,6 +27,8 @@
         $listeArticles .= "-" . $infosProduit[0]->nom . " x" . $produit->quantite . "<br>";
     }
 
+    $listeArticles = str_replace("*", " ", $listeArticles);
+
     $corpsMail = "<p>Voici le r&eacute;capitulatif de votre commande n&#176;" . $noCommande[0]->id . " :<br><br>" . $listeArticles . "<br>Total d&#251; : " . $_POST['prixTotal'] . "&#8364;<br><br>L'&eacute;quipe du BDE vous contactera pour vous donnez rendez-vous pour vous remettre vos articles et proc&eacute;der au r&egrave;glement !</p>";
     
 	try {
