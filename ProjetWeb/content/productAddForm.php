@@ -30,6 +30,11 @@
                     <label for="inputImage">Lien image du produit</label>
                 </div>
 
+                <div class="form-label-group">
+                    <input type="text" id="inputCategory" class="form-control" name="productCategory" placeholder="Categorie" required>
+                    <label for="inputCategory">Catégorie de produit</label>
+                </div>
+
                 <button class="btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">AJOUTER PRODUIT</button>
             </form>
         </div>

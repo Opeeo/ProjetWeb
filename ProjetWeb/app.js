@@ -40,6 +40,22 @@ function getConnectionCommune() {
 
 }
 
+app.get("/recupCategory", (req, res) =>{
+
+    const queryString = "SELECT DISTINCT(categorie) FROM produits"
+    getConnectionLocale().query(queryString, (err, rows) =>{
+    
+        if(err){
+
+            console.log("Fetch products error: \n" + err)
+            return
+        }
+
+        res.json(rows)
+        return
+    })
+})
+
 app.get("/recupProduitById/:id", (req, res) =>{
 
     const id = req.params.id
@@ -151,17 +167,18 @@ app.get("/recupParticipation/:idEvent", (req, res) => {
 
 })
 
-app.get("/addProduct/:nom/:prix/:quant/:url", (req, res) =>{
+app.get("/addProduct/:nom/:prix/:quant/:url/:category", (req, res) =>{
 
     const lien = req.params.url
     const nom = req.params.nom
     const quant = req.params.quant
     const prix = req.params.prix
+    const category = req.params.category
 
 
-    const queryString = "INSERT INTO produits(nom, prix, quantite, img) VALUES (?, ?, ?, ?)"
+    const queryString = "INSERT INTO produits(nom, prix, quantite, img, categorie) VALUES (?, ?, ?, ?, ?)"
 
-    getConnectionLocale().query(queryString, [nom, prix, quant, lien], (err,rows, fields) => {
+    getConnectionLocale().query(queryString, [nom, prix, quant, lien, category], (err,rows, fields) => {
        
         console.log("Adding product...")
 
@@ -170,7 +187,7 @@ app.get("/addProduct/:nom/:prix/:quant/:url", (req, res) =>{
             console.log("Add error: \n" + err)
             return
         }
-        res.send("Produit ajouter")
+        res.send("Produit ajouté")
         return
     })
 
@@ -440,7 +457,7 @@ app.get("/inscription/:email/:nom/:prenom/:mdp", (req ,res) => {
 
         if(rows == ""){  
             console.log("Working ...")
-            getConnectionLocale().query(queryStringAddL, [nom, prenom, email, mdp, "Toulouse", "[]"], (err, rows, fields) => {
+            getConnectionLocale().query(queryStringAddL, [nom, prenom, email, mdp, "Toulouse", "[{}]"], (err, rows, fields) => {
                 if(err){
                     console.log("Insert user error : \n" + err)
                     

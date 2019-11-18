@@ -35,7 +35,7 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <form action="boutique.php" method="post">
 
                                                 <!-- Slider min max Prix
                                                 <div id="rangeBox">
@@ -52,26 +52,23 @@
                                                 </div> -->
 
                                                 <!-- Checkboxs des catégories -->
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="CP1">
-                                                    <label class="custom-control-label" for="CP1">Textile</label>
-                                                </div>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="CP2">
-                                                    <label class="custom-control-label" for="CP2">Accessoires</label>
-                                                </div>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="CP3">
-                                                    <label class="custom-control-label" for="CP3">Alcool</label>
-                                                </div>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" class="custom-control-input" id="CP4">
-                                                    <label class="custom-control-label" for="CP4">Avions</label>
-                                                </div>
+                                                <?php
+
+                                                include "content/displayCategory.php";
+
+                                                $category = file_get_contents("http://localhost:3003/recupCategory");
+                                                $catJson = json_decode($category);
+
+                                                if(isset($catJson)) {
+                                                    for ($i = 0; $i < count($catJson) ; $i++) {
+                                                        displayCategory($catJson[$i]->categorie);
+                                                    }
+                                                }
+                                                ?>
 
                                                 <div class="modal-footer">
-                                                        <button type="button" class="btn btn-dark" data-dismiss="modal">Fermer</button>
-                                                        <button type="button submit" class="btn btn-success">Valider</button>
+                                                    <button type="button" class="btn btn-dark" data-dismiss="modal">Fermer</button>
+                                                    <button type="button submit" class="btn btn-success">Valider</button>
                                                 </div>
                                         </div>
                                     </div>
@@ -170,11 +167,26 @@
 
                         for($i = 0 ; $i < count($resultProd) ;  $i++){
 
-                            $name = str_replace("*", " ", $resultProd[$i]->nom);
+                            if(isset($_POST['check'. $resultProd[$i]->categorie])) {
 
-                            $img = str_replace("*", "/", $resultProd[$i]->img);
+                                $name = str_replace("*", " ", $resultProd[$i]->nom);
 
-                            displayProduct($name,$resultProd[$i]->prix,$resultProd[$i]->quantite,$img,$resultProd[$i]->id);
+                                $img = str_replace("*", "/", $resultProd[$i]->img);
+
+                                displayProduct($name,$resultProd[$i]->prix,$resultProd[$i]->quantite,$img,$resultProd[$i]->id);
+
+                            }
+
+                            if(isset($_GET['index'])) {
+
+                                $name = str_replace("*", " ", $resultProd[$i]->nom);
+
+                                $img = str_replace("*", "/", $resultProd[$i]->img);
+
+                                displayProduct($name,$resultProd[$i]->prix,$resultProd[$i]->quantite,$img,$resultProd[$i]->id);
+
+                            }
+
                         }
 
                     }

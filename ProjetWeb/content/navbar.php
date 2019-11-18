@@ -35,7 +35,7 @@
                         </a>
                         
                         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-                            <a class=\"dropdown-item\" href=\"boutique.php\">Accéder à la boutique</a>
+                            <a class=\"dropdown-item\" href=\"boutique.php?index=1\">Accéder à la boutique</a>
                             <div class=\"dropdown-divider\"></div>
                             <a class=\"dropdown-item\" href=\"productAdd.php\">Ajouter un produit</a>
                         </div>
@@ -45,14 +45,14 @@
                 }else {
                     echo "
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"./boutique.php\">Boutique</a>
+                        <a class=\"nav-link\" href=\"./boutique.php?index=1\">Boutique</a>
                     </li>
                     ";
                 }
             } else {
                 echo "
                 <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"./boutique.php\">Boutique</a>
+                    <a class=\"nav-link\" href=\"./boutique.php?index=1\">Boutique</a>
                 </li>
                 ";
             }
