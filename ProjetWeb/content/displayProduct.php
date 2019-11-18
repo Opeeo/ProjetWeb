@@ -25,13 +25,27 @@
                 <a href='targetArticle.php?id=". $productId ."' class='button-link'>
                     <button class='btn btn-lg btn-dark btn-block btn-login text-uppercase font-weight-bold custom-button'>Voir le produit</button>
                 </a>
-            </div>
-            
-        
-        </div>
-        
+                
+                ";
 
-        
+        if(isset($_SESSION['mail'])) {
+            if($_SESSION['statut'] == 3) {
+
+                echo "
+                
+                <a href='content/scriptDeleteProduct.php?id=" . $productId . "' class='button-link'>
+                    <button class='btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold custom-button'>Supprimer le produit</button>
+                </a>
+                
+                ";
+
+            }
+
+        }
+
+            echo "
+            </div>
+        </div>
         ";
 
 

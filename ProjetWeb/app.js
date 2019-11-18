@@ -40,6 +40,22 @@ function getConnectionCommune() {
 
 }
 
+app.get("/recupCommandes", (req, res) =>{
+
+    const queryString = "SELECT contenu FROM commandes"
+    getConnectionLocale().query(queryString, (err, rows) =>{
+    
+        if(err){
+
+            console.log("Fetch products error: \n" + err)
+            return
+        }
+
+        res.json(rows)
+        return
+    })
+})
+
 app.get("/recupCategory", (req, res) =>{
 
     const queryString = "SELECT DISTINCT(categorie) FROM produits"
@@ -147,6 +163,26 @@ app.get("/recupProduit", (req, res) =>{
         res.json(rows)
         return
     })
+})
+
+app.get("/deleteProduct/:idProduct", (req, res) =>{
+
+    const idProduct = req.params.idProduct
+    const queryString = "DELETE FROM produits WHERE id = ?"
+
+    getConnectionLocale().query(queryString, [idProduct], (err,rows, fields) => {
+       
+        console.log("Deleting product...")
+
+        if(err){
+
+            console.log("Delete error: \n" + err)
+            return
+        }
+        res.send("Suppression du produit")
+        return
+    })
+
 })
 
 app.get("/recupParticipation/:idEvent", (req, res) => {
