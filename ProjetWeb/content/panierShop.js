@@ -34,6 +34,8 @@ $(document).ready(function() {
       $('#panier-sous-total').html(sousTotal.toFixed(2));
       $('#panier-tva').html(ttc.toFixed(2));
       $('#panier-total').html(total.toFixed(2));
+      $(".prixTotal").val(total.toFixed(2));
+      //console.log($(".prixTotal").val());
       if(total == 0){
           $('.paiement').fadeOut(fadeTime);
       }else{
