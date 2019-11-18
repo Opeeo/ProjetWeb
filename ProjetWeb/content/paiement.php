@@ -50,7 +50,7 @@
 
         $mail->Send();
 
-        $corpsMail2 = "<p>Voici le r&eacute;capitulatif de la commande n&#176;" . $noCommande[0]->id . " &eacute;ffectu&eacute;e par " . $_SESSION['prenom'] . " " . $_SESSION['nom'] . " (" . $_SESSION['mail'] . ") :<br><br>" . $listeArticles . "<br>Total d&#251; : " . $_POST['prixTotal'] . "&#8364;</p>";
+        $corpsMail2 = "<p>Voici le r&eacute;capitulatif de la commande n&#176;" . $noCommande[0]->id . " effectu&eacute;e par " . $_SESSION['prenom'] . " " . $_SESSION['nom'] . " (" . $_SESSION['mail'] . ") :<br><br>" . $listeArticles . "<br>Total d&#251; : " . $_POST['prixTotal'] . "&#8364;</p>";
 
         $mail2 = new PHPMailer();
 		$mail2->IsSMTP();
