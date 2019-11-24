@@ -1,0 +1,35 @@
+header{
+    margin-top: 50px;
+}
+
+.custom-scrollbar-js,
+.custom-scrollbar-css {
+  height: 200px;
+}
+
+/* Enable le scroll pour le pavé de txt */
+.custom-scrollbar-css {
+  overflow-y: scroll;
+}
+
+/* Largeur scrollbar */
+.custom-scrollbar-css::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Background scrollbar */
+.custom-scrollbar-css::-webkit-scrollbar-track {
+  background: rgb(223, 239, 255);
+}
+
+/* Design scrollbar */
+.custom-scrollbar-css::-webkit-scrollbar-thumb {
+  border-radius: 16px;
+  background-image: linear-gradient(to top, #007BFF 0%, rgb(27, 56, 88) 100%);
+}
+
+/* Replace body au cas où */
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(to right, #007BFF 0%, rgb(27, 56, 88) 100%);
+}

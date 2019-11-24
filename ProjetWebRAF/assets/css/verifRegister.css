@@ -1,0 +1,18 @@
+:root {
+    /* Gère les espaces */
+    --input-padding-x: 24px;
+    --input-padding-y: 12px;
+  }
+  
+  .login, .image {
+    /* Indique à l'image & au log in de prendre 100% de la place disponible */
+    min-height: 100vh;
+  }
+  
+  .bg-image {
+    background-image: url("../vendors/pictures/CESI_Corporate_Ecole_Ingenieurs.jpg");
+    /* Couvre tout l'espace alloué avec l'image & la centre */
+    background-size: cover;
+    background-position: center;
+  }
+

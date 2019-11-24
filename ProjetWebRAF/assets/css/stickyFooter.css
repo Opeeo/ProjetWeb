@@ -1,0 +1,33 @@
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Marge bas de contenu au footer */
+    margin-bottom: 60px;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;   /* Hauteur du footer */
+    line-height: 60px;  /* Centrage verticale */
+    background-color: #000000;
+    z-index: 7;
+  }
+
+/* * CSS du contenu de la page */
+
+body > .container {
+    padding: 60px 15px 0;
+  }
+  
+  .footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    
+  }
+  
+  code {
+    font-size: 80%;
+  }
